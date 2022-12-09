@@ -14,6 +14,9 @@ Make sure to have intalled `yarn` globally or locally on your PC
 - clone the remote master branch in to your PC
 ### `git clone https://github.com/Ediana-Ekanem/sih-connect-repo.git`
 
+- Pull latest changes from dev branch
+### `git pull origin dev`
+
 - Change working directory into cloned directory
 ### `cd sih-connect-repo`
 
@@ -33,7 +36,7 @@ HURRAY😍 THE WEB APP IS NOW LIVING LOCALLY ON YOUR MACHINE
 - `git add .`
 - `git commit -m 'commit message that explains exactly what you did'`
 - `git checkout -b 'branch_name_of_choice'`
-- `git push 'brach_name_of_choice'`
+- `git push origin 'brach_name_of_choice'`
 
 **Note: Commit messges are very important and they must explain what you did, you branch name must also be associated with what you did, example 'fixed_login_screen'**
 
