@@ -40,4 +40,4 @@ HURRAY😍 THE WEB APP IS NOW LIVING LOCALLY ON YOUR MACHINE
 
 **Note: Commit messges are very important and they must explain what you did, you branch name must also be associated with what you did, example 'fixed_login_screen'**
 
-### Then create a PR to merge with dev branch, Never Merge your PR yourself because it has to be reviewed.
+### Then create a PR to merge with dev branch, Never Merge your PR yourself because it has to be reviewed, You PR must make sense and it must always have sceenshots of your views.
