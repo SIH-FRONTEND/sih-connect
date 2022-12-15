@@ -10,16 +10,16 @@ import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <Layout>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/profile" element={<DeveloperProfile />} />
-          <Route path="*" element={<PageNotFound />} />
+          <Route path='/' element={<HomePage />} />
+          <Route path='/profile' element={<DeveloperProfile />} />
+          <Route path='*' element={<PageNotFound />} />
         </Routes>
       </Layout>
     </div>
-  );
+  )
 }
 
 export default App;
