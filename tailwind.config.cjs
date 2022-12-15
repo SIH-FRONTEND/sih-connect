@@ -2,8 +2,10 @@
 module.exports = {
   content: ["./index.html","./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+      
     extend: {
       screens: {
+         phone:'230px',
         xs2: "300px",
         sm2: "480px",
         md2: "547px",
