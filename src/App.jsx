@@ -8,11 +8,12 @@ import Layout from "./components/Layout/Layout";
 import HomePage from "./pages/HomePage";
 import DeveloperProfile from "./pages/DeveloperProfile";
 import PageNotFound from "./pages/PageNotFound";
-import Register from "./components/register/Register";
+import Register from "./components/auth/Register";
 import EditProfile from "./pages/EditProfile";
 import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage";
-import ChangePassword from "./components/change-password/ChangePassword";
+import ChangePassword from "./components/auth/ChangePassword";
+import Techies from "./pages/Techies";
 
 function App() {
   return (
@@ -21,13 +22,14 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/homepage" element={<HomePage />} />
-          <Route path="/profile" element={<DeveloperProfile />} />
-          <Route path="*" element={<PageNotFound />} />
-          <Route path="/register" element={<Register />} />
+
           <Route path="/edit-profile" element={<EditProfile />} />
           <Route path="/loginpage" element={<LoginPage />} />
-          <Route path="/profilepage" element={<ProfilePage />} />
-          <Route path="/changepassword" element={<ChangePassword />} />
+          <Route path="/:id/profile" element={<ProfilePage />} />
+         
+          <Route path="/all-techies" element={<Techies />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Layout>
     </div>
