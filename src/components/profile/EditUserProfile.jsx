@@ -1,8 +1,6 @@
-import React from "react";
-import profilePic from "../../src/assets/profile2.png";
-import radioIcon from "../../src/assets/radio_button.png";
-import photoButton from "../../src/assets/photo_button.png";
-import { TbCameraPlus } from "react-icons/tb";
+import profilePic from "../../assets/profile2.png";
+import radioIcon from "../../assets/radio_button.png";
+import photoButton from "../../assets/photo_button.png";
 
 const EditUserProfile = () => {
   return (
@@ -41,10 +39,9 @@ const EditUserProfile = () => {
                   name="txtname"
                   rows="4"
                   cols="50"
-                  maxlength="200"
-                >
-                  type here....... max of 300 characters
-                </textarea>
+                  maxLength={"200"}
+                  dafaultvalue=" type here....... max of 300 characters"
+                ></textarea>
 
                 <div className=" mt-10">
                   <label className="text-[#344054] flex text-start    font-[400] text-[17px] ">

@@ -7,7 +7,7 @@ import gitHub from "../../assets/github_icon.png";
 import location from "../../assets/location_icon.png";
 import profilePic from "../../assets/profile.png";
 
-const UserProfile = () => {
+const UserProfile = (props) => {
   return (
     <div>
       <div className="container mx-auto">
@@ -95,7 +95,7 @@ const UserProfile = () => {
                   <div className="h-10 w-10">
                     <img
                       src={gitHub}
-                      alt=""
+                      alt="github"
                       className="h-[100%] w-[100%] object-fit"
                     />
                     <p className="text-center text-[12px]">Github</p>
