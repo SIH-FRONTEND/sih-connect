@@ -9,6 +9,8 @@ const ProfilePage = () => {
   const { id } = useParams();
   console.log(id);
 
+  //work here first
+
   //writes logic that fetches information about a single techie
   //this must be async
   return (
