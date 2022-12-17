@@ -1,11 +1,13 @@
-import React from "react";
-import Register from "../components/register/Register";
+import React, { Fragment } from "react";
+
+//importing components
+import Register from "../components/auth/Register";
 
 const RegisterPage = () => {
   return (
-    <div>
+    <Fragment>
       <Register />
-    </div>
+    </Fragment>
   );
 };
 

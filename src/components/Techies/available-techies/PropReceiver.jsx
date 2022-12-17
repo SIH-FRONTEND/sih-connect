@@ -1,37 +1,16 @@
-import React, { useEffect, useState } from "react";
-import UserProp from "./UserProp";
-import useFetch from "../../hooks/useFetch";
+// importing hooks
+import useFetch from "../../../hooks/useFetch";
 
+//importing components
+import LoadingSpinner from "../../UI/LoadingSpinner";
+import UserProp from "./UserProp";
+
+//url for data transfer
 const url = "https://starthubconnect.adaptable.app/user/latest-members";
 
 const PropReceiver = () => {
+  //fetching data using imported Hook
   const { data, isPending, error } = useFetch(url);
-  // const [users, setUsers] = useState([]);
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [Error, setError] = useState("");
-
-  // useEffect(() => {
-  //   const getLatestMembers = async () => {
-  //     setIsLoading(true);
-  //     const response = await fetch(url);
-  //     const data = await response.json();
-  //     console.log(users);
-  //     setUsers(data);
-  //     setIsLoading(false);
-  //   };
-
-  //   try {
-  //     getLatestMembers();
-  //   } catch (error) {
-  //     setError(error);
-  //     setIsLoading(false);
-  //     console.log(error);
-  //   }
-  // }, []);
-
-  // if (isLoading) {
-  //   return <div>Loading ....</div>;
-  // }
 
   return (
     <div>
@@ -42,12 +21,12 @@ const PropReceiver = () => {
           </h2>
           {data && !isPending && !error && (
             <div className="flex flex-wrap justify-center items-center py-5  gap-y-8 gap-x-0">
-              {data.items.map((item) => {
+              {data.items.slice(0, 12).map((item) => {
                 return <UserProp key={item.id} {...item} />;
               })}
             </div>
           )}
-          {isPending && !error && !data && <h1>Loading...</h1>}
+          {isPending && !error && !data && <LoadingSpinner />}
           {error && !isPending && !data && <h1>Error Loading Data</h1>}
 
           <button className="text-[#687eb6]  border-2 border-[#687eb6]   px-8 py-1 rounded  hover:bg-[#687eb6] hover:border-white hover:text-white">

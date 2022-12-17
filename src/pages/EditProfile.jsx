@@ -2,17 +2,28 @@
 import React, { useState, Fragment } from "react";
 
 //imported components
-import EditUserProfile from "../components/EditUserProfile";
-import ChangePassword from "../components/change-password/ChangePassword";
+import EditUserProfile from "../components/Profile/EditUserProfile";
+import ChangePassword from "../components/auth/ChangePassword";
+
+//Hardcoded Data
+const TEXT_DATA = {
+  updateProfile: "Update Profile",
+  changePassword: "Change Password",
+};
 
 const EditProfile = () => {
   const [showEditProfile, setShowEditProfile] = useState(true);
-  const [activeField, setActiveField] = useState(true);
 
   const onEditProfileHandler = (event) => {
-    if (event.target.tagName === "P") {
-      setShowEditProfile((val) => !val);
-      setActiveField((val) => !val);
+    if (event.target.textContent === TEXT_DATA.updateProfile) {
+      setShowEditProfile((val) => true);
+
+      return;
+    }
+    if (event.target.textContent === TEXT_DATA.changePassword) {
+      setShowEditProfile((val) => false);
+
+      return;
     }
   };
   return (
@@ -23,21 +34,21 @@ const EditProfile = () => {
       >
         <p
           className={`w-30 h-[25px] font-semibold  text-center ${
-            activeField && "border-b-2"
+            showEditProfile && "border-b-2"
           }  text-[14px] hover:cursor-pointer`}
         >
           Update Profile
         </p>
         <p
           className={`w-30 h-[25px] font-semibold  text-center ${
-            !activeField && "border-b-2"
+            !showEditProfile && "border-b-2"
           }  text-[14px] hover:cursor-pointer`}
         >
           Change Password
         </p>
       </div>
       {showEditProfile && <EditUserProfile />}
-      {showEditProfile || <ChangePassword />}
+      {!showEditProfile && <ChangePassword />}
     </Fragment>
   );
 };

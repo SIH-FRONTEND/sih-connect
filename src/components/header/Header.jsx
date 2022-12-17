@@ -1,10 +1,12 @@
-import React from "react";
+import React, { Fragment } from "react";
 
-// import { Button } from "../buttonStyled";
+//importing from react-router-dom
+import { Link } from "react-router-dom";
+
+//importing components
 import { buttonData } from "./btnData";
 import DefaultBtn from "./DefaultBtn";
 import SIHConnect from "../../assets/starthubconnect.png";
-import arrowVector from '../../assets/arrowVector.png'
 
 const Header = () => {
   return (
@@ -13,7 +15,7 @@ const Header = () => {
         <section className="pl-4 pt-28 w-2/4">
           <div>
             <h1 className="text-5.5xl text-baseBlue font-medium leading-12">
-              <b>Connect</b> with <b>techies</b> from all <b>niche</b>{" "}
+              <b>Connect</b> with <b>techies</b> from all <b>niche</b>
             </h1>
             <p className="font-medium max-w-xl text-xlr text-primary pt-8 pb-10  leading-8 ">
               Collaborate with techies on a project and get things done as a
@@ -25,12 +27,16 @@ const Header = () => {
      <Button type ='B'>value</Button> */}
           {buttonData.map((props, id) => {
             return (
-              <>
-                {props.type === "A" && <DefaultBtn {...props} />}
-                {props.id === 2 && <DefaultBtn {...props} />}
-              </>
+              <Fragment key={id}>
+                <Link to="/register">
+                  {props.type === "A" && <DefaultBtn {...props} />}
+                </Link>
+                <Link to="/all-techies">
+                  {props.id === 2 && <DefaultBtn {...props} />}
+                </Link>
+              </Fragment>
             );
-          })}{" "}
+          })}
         </section>
 
         <section className="flex justify-end">
@@ -38,11 +44,8 @@ const Header = () => {
             src={SIHConnect}
             className="max-w-2.5xl rounded-full px-2 py-2 "
           />
-          {/* <img src={arrowVector}
-          className=' w-[300px]object-cover' /> */}
         </section>
       </main>
-      {/* <AvailableTechies className='bg-red-700' /> */}
     </div>
   );
 };

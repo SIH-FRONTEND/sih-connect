@@ -1,21 +1,23 @@
-// import AvailableTechies from '../components/available-techies/AvailableTechies'
-import FeaturedTechies from '../components/featured-techies/FeaturedTechies'
-import PropReceiver from '../components/available-techies/PropReceiver'
-import '../styles/index.css'
-import '../App'
-import CarouselSlider from '../components/carousel/CarouselSlider'
-import Header from '../components/header/Header'
+//importing styles
+import "../styles/index.css";
+
+//Importing Components
+import FeaturedTechies from "../components/Techies/featured-techies/FeaturedTechies";
+
+import PropReceiver from "../components/Techies/available-techies/PropReceiver";
+import CarouselSlider from "../components/Carousel/CarouselSlider";
+import Header from "../components/Header/Header";
 
 const HomePage = () => {
   return (
     <div>
-      <Header/>
+      <Header />
       <FeaturedTechies />
-      {/* <AvailableTechies /> */}
+
       <PropReceiver />
       <CarouselSlider />
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
