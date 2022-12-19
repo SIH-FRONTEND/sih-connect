@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { buttonData } from "./btnData";
 import DefaultBtn from "./DefaultBtn";
 import SIHConnect from "../../assets/starthubconnect.png";
+import SubHeader from "./SubHeader";
 
 const Header = () => {
   return (
@@ -46,6 +47,7 @@ const Header = () => {
           />
         </section>
       </main>
+     
     </div>
   );
 };
