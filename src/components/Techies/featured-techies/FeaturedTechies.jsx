@@ -13,7 +13,7 @@ const FeaturedTechies = () => {
   const { data, isPending, error } = useFetch(url);
 
   return (
-    <div className="bg-[rgb(16,50,140)] text-center px-[7%] py-[3rem] h-full]">
+    <div className="bg-[rgb(16,50,140)] text-center py-[3rem] h-full]">
       <h1 className="text-white text-[4vmin] font-[400] mb-[1rem]">
         Featured techies
       </h1>
