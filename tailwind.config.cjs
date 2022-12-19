@@ -1,11 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html","./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-      
     extend: {
       screens: {
-         phone:'230px',
+        phone: "230px",
         xs2: "300px",
         sm2: "480px",
         md2: "547px",
@@ -23,14 +22,14 @@ module.exports = {
         sm: "0.8rem",
         base: "1rem",
         xl: "1.25rem",
-        xlr: '1.35rem',
-        "5.5xl": ["3.2rem", '1rem'],
+        xlr: "1.35rem",
+        "5.5xl": ["3.2rem", "1rem"],
       },
       backgroundColor: {
         primary: "#10328C",
       },
       maxWidth: {
-        'lgr': '560px',
+        lgr: "560px",
         "2.5xl": "725px",
         "2.4xl": "720px",
       },
