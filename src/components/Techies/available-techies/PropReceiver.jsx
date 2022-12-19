@@ -14,25 +14,23 @@ const PropReceiver = () => {
 
   return (
     <div>
-      <section className="bg-[#f6f8fe]  justify-center text-center items-center">
-        <div className="p-5">
-          <h2 className=" flex  justify-center text-center items-center font-[500] text-[40px] font-[Raleway]">
-            Avialable techies
-          </h2>
-          {data && !isPending && !error && (
-            <div className="flex flex-wrap justify-center items-center py-5  gap-y-8 gap-x-0">
-              {data.items.slice(0, 12).map((item) => {
-                return <UserProp key={item.id} {...item} />;
-              })}
-            </div>
-          )}
-          {isPending && !error && !data && <LoadingSpinner />}
-          {error && !isPending && !data && <h1>Error Loading Data</h1>}
+      <section className="bg-[#f6f8fe]  justify-center text-center items-center py-[3rem]">
+        <h2 className=" flex  justify-center text-center items-center font-[500] text-[40px] font-[Raleway]">
+          Avialable techies
+        </h2>
+        {data && !isPending && !error && (
+          <div className="flex flex-wrap justify-center items-center py-5  gap-y-8 gap-x-0">
+            {data.items.slice(0, 12).map((item) => {
+              return <UserProp key={item.id} {...item} />;
+            })}
+          </div>
+        )}
+        {isPending && !error && !data && <LoadingSpinner />}
+        {error && !isPending && !data && <h1>Error Loading Data</h1>}
 
-          <button className="text-[#687eb6]  border-2 border-[#687eb6]   px-8 py-1 rounded  hover:bg-[#687eb6] hover:border-white hover:text-white">
-            See more
-          </button>
-        </div>
+        <button className="text-[#687eb6]  border-2 border-[#687eb6] px-8 py-1 rounded w-[248px] h-[49px] hover:bg-[#687eb6] hover:border-white hover:text-white">
+          See more
+        </button>
       </section>
     </div>
   );

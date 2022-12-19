@@ -4,6 +4,9 @@ import { IconContext } from "react-icons";
 import { FaSistrix } from "react-icons/fa";
 import { RxBell } from "react-icons/rx";
 import { RxAvatar } from "react-icons/rx";
+import { FiMenu } from "react-icons/fi";
+
+//importing from react-router-dom
 import { Link } from "react-router-dom";
 
 const Nav = () => {
@@ -12,17 +15,22 @@ const Nav = () => {
       <Link to="/" className="object-cover">
         <img className="" src={Starthublogo} />
       </Link>
-      <IconContext.Provider value={{ className: "shared-class", size: 28 }}>
+      <IconContext.Provider
+        value={{
+          className: "shared-class",
+          size: 24,
+          style: { cursor: "pointer" },
+        }}
+      >
         <div className="ml-auto flex gap-10 ">
-          <Link to="/search">
-            <FaSistrix style="" />
-          </Link>
-          <Link to="/notifications">
+          <FaSistrix />
+          <Link to="/notifications" className="lg2:block hidden">
             <RxBell />
           </Link>
-          <Link to="/profile">
+          <Link to="/profile" className="lg2:block hidden">
             <RxAvatar />
           </Link>
+          <FiMenu className="block lg2:hidden" />
         </div>
       </IconContext.Provider>
     </nav>
