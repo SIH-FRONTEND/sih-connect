@@ -4,7 +4,7 @@ import Carousel from "react-elastic-carousel";
 
 const CarouselSlider = () => {
   return (
-    <div>
+    <div className="px-[40px] h-[auto]">
       <Carousel>
         <Slide />
         <Slide />
