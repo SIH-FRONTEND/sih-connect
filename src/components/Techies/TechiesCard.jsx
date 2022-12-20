@@ -1,6 +1,6 @@
 import React from "react";
 
-const UserProp = ({
+const TechiesCard = ({
   profile_image,
   firstname,
   lastname,
@@ -34,4 +34,4 @@ const UserProp = ({
   );
 };
 
-export default UserProp;
+export default TechiesCard;

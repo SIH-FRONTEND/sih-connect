@@ -19,8 +19,6 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<LoginPage />} />
         <Route path="/" element={<Layout />}>
           <Route path="/" index element={<HomePage />} />
           <Route path="/homepage" element={<HomePage />} />
@@ -28,6 +26,8 @@ function App() {
           <Route path="/:id/profile" element={<ProfilePage />} />
           <Route path="/all-techies" element={<Techies />} />
           <Route path="*" element={<PageNotFound />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<LoginPage />} />
         </Route>
       </Routes>
     </div>
