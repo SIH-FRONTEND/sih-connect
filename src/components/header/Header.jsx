@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { buttonData } from "./btnData";
 import DefaultBtn from "./DefaultBtn";
 import SIHConnect from "../../assets/starthubconnect.png";
+import SubHeader from "./SubHeader";
 
 const Header = () => {
   return (
@@ -37,10 +38,16 @@ const Header = () => {
         </div>
       </section>
 
-      <section className="flex items-center justify-center">
-        <img src={SIHConnect} className="rounded-full w-[860px]" />
-      </section>
-    </main>
+        <section className="flex justify-end">
+          <img
+            src={SIHConnect}
+            className="max-w-2.5xl rounded-full px-2 py-2 "
+          />
+        </section>
+      </main>
+     
+    </div>
+
   );
 };
 
