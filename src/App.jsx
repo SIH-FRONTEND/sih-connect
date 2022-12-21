@@ -18,20 +18,18 @@ import Techies from "./pages/Techies";
 function App() {
   return (
     <div className="App">
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="/" index element={<HomePage />} />
           <Route path="/homepage" element={<HomePage />} />
-
           <Route path="/edit-profile" element={<EditProfile />} />
-          <Route path="/loginpage" element={<LoginPage />} />
           <Route path="/:id/profile" element={<ProfilePage />} />
-         
           <Route path="/all-techies" element={<Techies />} />
-          <Route path="/register" element={<Register />} />
           <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </Layout>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Route>
+      </Routes>
     </div>
   );
 }

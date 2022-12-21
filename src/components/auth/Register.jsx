@@ -4,29 +4,8 @@ import Logo from "../../assets/StarthubLogo.png";
 const Register = () => {
   return (
     <div>
-      <div className="flex justify-between px-10">
-        <div>
-          <div className="h-[38px] w-[130px]">
-            <img
-              src={Logo}
-              className='h-[100%] w-[100%] object-fit" alt="Logo '
-            />
-          </div>
-        </div>
-        <div className="flex gap-20">
-          <div className="hidden lg2:block">
-            <h3 className="font-bold mt-5">Already a member?</h3>
-          </div>
-
-          <div>
-            <button className="bg-[#10328C] font-[Raleway] text[20px] text-white py-[0.6rem] px-[3rem] justify-center items-center text-center rounded-md hover:bg-[#5d8aa8] transition-colors mb-10">
-              Log in
-            </button>
-          </div>
-        </div>
-      </div>
       <div className="justify-center items-center text-center  font-bold text-[28px]">
-        sign up!
+        Register
       </div>
 
       <div className=" bg-[#ffffff] flex items-center justify-center   ">
@@ -142,7 +121,7 @@ const Register = () => {
             </div>
           </div>
           <button className="flex justify-center items-center mx-auto content-center bg-[#10328C] font-[Raleway]  text[20px] text-white py-[0.6rem] px-[3rem]  rounded-md  hover:bg-[#5d8aa8] transition-colors mb-10">
-            Log in
+            Register
           </button>
         </div>
       </div>
