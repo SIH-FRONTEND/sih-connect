@@ -4,3 +4,8 @@
   font-family: "Raleway", sans-serif;
   box-sizing: border-box !important;
 }
+
+.App {
+  max-width: 1800px;
+  margin: 0 auto;
+}

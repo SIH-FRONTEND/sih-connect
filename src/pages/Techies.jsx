@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
+// importing Components
+import TechiesCard from '../components/Techies/TechiesCard'
+
 const url = 'https://jsonplaceholder.typicode.com/photos'
 const Techies = () => {
   const [techies, setTchies] = useState([])

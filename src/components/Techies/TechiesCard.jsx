@@ -1,6 +1,6 @@
 import React from "react";
 
-const UserProp = ({
+const TechiesCard = ({
   profile_image,
   firstname,
   lastname,
@@ -9,7 +9,7 @@ const UserProp = ({
 }) => {
   return (
     <div>
-      <div className=" h-[270px] w-[196px] bg-[#f6f8fe] shadow relative mx-2">
+      <div className=" h-[340px] w-[250px] bg-[#ffffff] shadow relative">
         <div className="py-8 px-5 justify-center items-center text-center">
           <div className="h-24  w-24  absolute left-[3rem] ">
             <img
@@ -34,4 +34,4 @@ const UserProp = ({
   );
 };
 
-export default UserProp;
+export default TechiesCard;
