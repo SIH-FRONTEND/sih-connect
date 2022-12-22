@@ -38,16 +38,10 @@ const Header = () => {
         </div>
       </section>
 
-        <section className="flex justify-end">
-          <img
-            src={SIHConnect}
-            className="max-w-2.5xl rounded-full px-2 py-2 "
-          />
-        </section>
-      </main>
-     
-    </div>
-
+      <section className="flex justify-end">
+        <img src={SIHConnect} className="max-w-2.5xl rounded-full px-2 py-2 " />
+      </section>
+    </main>
   );
 };
 
