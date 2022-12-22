@@ -9,7 +9,7 @@ const TechiesCard = ({
 }) => {
   return (
     <div>
-      <div className=" h-[270px] w-[196px] bg-[#f6f8fe] shadow relative mx-2">
+      <div className=" h-[340px] w-[250px] bg-[#ffffff] shadow relative">
         <div className="py-8 px-5 justify-center items-center text-center">
           <div className="h-24  w-24  absolute left-[3rem] ">
             <img

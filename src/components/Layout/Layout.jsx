@@ -16,7 +16,7 @@ const LayoutControl = styled.main`
     width: 100%;
   }
   & > * > * {
-    padding: 2em 115px;
+    padding: 2em 68px;
   }
 `;
 

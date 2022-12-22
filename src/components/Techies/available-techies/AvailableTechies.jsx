@@ -14,11 +14,11 @@ const AvailableTechies = () => {
 
   return (
     <section className="bg-[#f6f8fe]  justify-center text-center items-center py-[3rem]">
-      <h2 className=" flex  justify-center text-center items-center font-[500] text-[40px] font-[Raleway]">
+      <h2 className=" flex  justify-center text-center items-center font-[500] text-[40px]">
         Avialable techies
       </h2>
       {data && !isPending && !error && (
-        <div className="flex flex-wrap justify-center items-center py-5  gap-y-8 gap-x-0">
+        <div className="flex flex-wrap justify-center items-center py-5  gap-[18px]">
           {data.items.slice(0, 12).map((item) => {
             return <TechiesCard key={item.id} {...item} />;
           })}
