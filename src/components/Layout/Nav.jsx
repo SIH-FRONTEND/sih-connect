@@ -9,8 +9,9 @@ import { FiMenu } from "react-icons/fi";
 //importing for store actions
 import { useSelector } from "react-redux";
 
-const REGISTER = "/register";
 //stores the pathname ready for comparison
+const REGISTER = "/register";
+const LOGIN = "/login";
 
 //importing from react-router-dom
 import { Link, useLocation } from "react-router-dom";
@@ -47,13 +48,13 @@ const Nav = () => {
       {!isLoggedIn && (
         <div className="flex items-center justify-center">
           <p className="text-lg font-bold">
-            {pathname === REGISTER ? "Not yet a member?" : "Already a Member?"}
+            {pathname === LOGIN ? "Not yet a member?" : "Already a Member?"}
           </p>
           <Link
-            to={pathname}
+            to={pathname === LOGIN ? REGISTER : LOGIN}
             className="text-white w-[170px] h-[53px] mx-[31px] bg-[#10328C] rounded-xl p-[auto] text-base flex items-center justify-center"
           >
-            {pathname === REGISTER ? "Sign Up" : "Sign In"}
+            {pathname === LOGIN ? "Sign Up" : "Sign In"}
           </Link>
         </div>
       )}
