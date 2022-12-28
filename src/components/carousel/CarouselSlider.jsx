@@ -1,5 +1,7 @@
-import React from "react";
+//imported components
 import Slide from "./Slide";
+
+//importing supporting component from lib
 import Carousel from "react-elastic-carousel";
 
 const CarouselSlider = () => {

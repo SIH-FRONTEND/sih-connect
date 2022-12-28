@@ -2,7 +2,7 @@
 import React, { useState, Fragment } from "react";
 
 //imported components
-import EditUserProfile from "../components/Profile/EditUserProfile";
+import EditUserProfile from "../components/profile/EditUserProfile";
 import ChangePassword from "../components/auth/ChangePassword";
 
 //Hardcoded Data

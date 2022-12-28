@@ -6,13 +6,11 @@ import Layout from "./components/Layout/Layout";
 
 //imported pages
 import HomePage from "./pages/HomePage";
-import DeveloperProfile from "./pages/DeveloperProfile";
 import PageNotFound from "./pages/PageNotFound";
 import Register from "./components/auth/Register";
 import EditProfile from "./pages/EditProfile";
 import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage";
-import ChangePassword from "./components/auth/ChangePassword";
 import Techies from "./pages/Techies";
 
 function App() {

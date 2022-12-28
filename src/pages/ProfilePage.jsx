@@ -3,7 +3,8 @@ import React from "react";
 //importing navigation params from react-router-dom
 import { useParams } from "react-router-dom";
 // import Profile from "../components/Profile/Profile";
-import UserProfile from "../components/Profile/UserProfile";
+import UserProfile from "../components/profile/UserProfile";
+
 
 const ProfilePage = () => {
   const { id } = useParams();
