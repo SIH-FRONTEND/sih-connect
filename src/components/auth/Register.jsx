@@ -20,7 +20,6 @@ const Register = () => {
   //defining refs for all routes
   const firstNameRef = useRef();
   const lastNameRef = useRef();
-  const userNameRef = useRef();
   const emailRef = useRef();
   const phoneNoRef = useRef();
   const genderRef = useRef();
@@ -35,7 +34,6 @@ const Register = () => {
 
     const firstname = firstNameRef.current.value;
     const lastname = lastNameRef.current.value;
-    const username = userNameRef.current.value;
     const email = emailRef.current.value;
     const phone_number = phoneNoRef.current.value;
     const gender = genderRef.current.value;
@@ -51,16 +49,15 @@ const Register = () => {
     const user = {
       firstname,
       lastname,
-      username,
       email,
       phone_number,
       gender,
+      dob,
       password,
       confirmPassword,
     };
 
     try {
-      console.log(JSON.stringify(user));
       setIsPending(true);
       const result = await loginHandler(
         "https://starthubconnect.adaptable.app/auth/register",
@@ -79,7 +76,7 @@ const Register = () => {
     }
   };
   //className for each row of inputs
-  const rowsClassName = `flex items-center justify-between w-[100%]`;
+  const rowsClassName = `flex flex-col xl2:flex-row items-center justify-between w-[100%]`;
 
   return (
     <div className="w-[100%] ">
@@ -89,7 +86,7 @@ const Register = () => {
 
       <form
         onSubmit={submitFormHandler}
-        className="flex flex-col items-center gap-[1em] w-[60%] mx-auto mb-[7em]"
+        className="flex flex-col items-center gap-[1em] w-[100%] xl2:w-[60%] mx-auto mb-[7em]"
       >
         <p className="font-bold text-[28px] mb-[1em]">Sign Up!</p>
         <div className="flex flex-col gap-[1em]">
@@ -155,7 +152,7 @@ const Register = () => {
           </div>
         </div>
         <div className="flex flex-col items-center mx-auto gap-2">
-          <button className="flex items-center justify-center h-[3em] bg-[#10328C] text[20px] text-white rounded-md hover:bg-[#5d8aa8] w-[500px]">
+          <button className="flex items-center justify-center h-[3em] bg-[#10328C] text[20px] text-white rounded-md hover:bg-[#5d8aa8] w-[100%] xl2:w-[500px]">
             Sign Up
           </button>
           <p>
