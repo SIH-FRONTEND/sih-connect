@@ -60,7 +60,7 @@ const Login = () => {
     }, []);
   }, [error]);
   return (
-    <form onSubmit={submitFormHandler}>
+    <form onSubmit={submitFormHandler} >
       <div className="  ">
         <div className="h-[5rem] w-[5rem] mx-auto text-center mb-16">
           <img
