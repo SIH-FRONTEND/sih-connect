@@ -3,6 +3,9 @@ import React, { useState, useRef, useEffect } from "react";
 // importing from react-router-dom
 import { useNavigate } from "react-router-dom";
 
+//importing components
+import Input from "./Input.jsx";
+
 //importing Global function
 import { loginHandler } from "../../API/authAPI.js";
 

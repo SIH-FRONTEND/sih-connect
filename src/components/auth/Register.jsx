@@ -2,7 +2,10 @@
 import { useRef, useState } from "react";
 
 //importing from react-router-dom
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+
+//importing components
+import Input from "./Input";
 
 //importing api function
 import { loginHandler } from "../../API/authAPI";
@@ -17,10 +20,10 @@ const Register = () => {
   //defining refs for all routes
   const firstNameRef = useRef();
   const lastNameRef = useRef();
-  const userNameRef = useRef();
   const emailRef = useRef();
   const phoneNoRef = useRef();
   const genderRef = useRef();
+  const dobRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
   const areyouSureRef = useRef();
@@ -31,10 +34,10 @@ const Register = () => {
 
     const firstname = firstNameRef.current.value;
     const lastname = lastNameRef.current.value;
-    const username = userNameRef.current.value;
     const email = emailRef.current.value;
     const phone_number = phoneNoRef.current.value;
     const gender = genderRef.current.value;
+    const dob = dobRef.current.value;
     const password = passwordRef.current.value;
     const confirmPassword = confirmPasswordRef.current.value;
     const areyouSure = areyouSureRef.current.value;
@@ -46,16 +49,15 @@ const Register = () => {
     const user = {
       firstname,
       lastname,
-      username,
       email,
       phone_number,
       gender,
+      dob,
       password,
       confirmPassword,
     };
 
     try {
-      console.log(JSON.stringify(user));
       setIsPending(true);
       const result = await loginHandler(
         "https://starthubconnect.adaptable.app/auth/register",
@@ -73,128 +75,91 @@ const Register = () => {
       setData(null);
     }
   };
+  //className for each row of inputs
+  const rowsClassName = `flex flex-col xl2:flex-row items-center justify-between w-[100%]`;
+
   return (
-    <div>
-      <div className="justify-center items-center text-center  font-bold text-[28px]">
-        Register
-      </div>
+    <div className="w-[100%] ">
       {isPending && !data && !error && <h1>Registering...</h1>}
       {error && !data && !isPending && <h1>Register Unsuccessful</h1>}
       {data && !isPending && <h1>Register Successful...</h1>}
 
       <form
         onSubmit={submitFormHandler}
-        className=" bg-[#ffffff] flex flex-col items-center justify-center w-[30rem] xs2:px-5 mx-[auto]"
+        className="flex flex-col items-center gap-[1em] w-[100%] xl2:w-[60%] mx-auto mb-[7em]"
       >
-        <div>
-          <div className="mt-10">
-            <label className="text-[#344054] flex text-start  mb-1  font-[400] text-[17px]">
+        <p className="font-bold text-[28px] mb-[1em]">Sign Up!</p>
+        <div className="flex flex-col gap-[1em]">
+          <div className={rowsClassName}>
+            <Input ref={firstNameRef} placeholder="Enter firstname...">
               First name
-            </label>
-            <input
-              className="w-full h-[65px] py-1 rounded-lg  border-gray-300 text-[#344054] px-2 inline-none mb-4  bg-[#F6F8FE]"
-              type="text"
-              placeholder="Enter firstname..."
-              ref={firstNameRef}
-            />
-          </div>
-          <div className="mt-3">
-            <label className="text-[#344054] flex text-start  mb-1   font-[400] text-[17px] ">
+            </Input>
+            <Input ref={lastNameRef} placeholder="Enter lastname...">
               Last name
-            </label>
-            <input
-              className="w-full h-[65px] py-1 rounded-md  border-gray-300 text-[#344054] px-2 inline-none mb-4  bg-[#F6F8FE]"
-              type="text"
-              placeholder="Enter lastname..."
-              ref={lastNameRef}
-            />
+            </Input>
           </div>
-          <div className="mt-3">
-            <label className="text-[#344054] flex text-start  mb-1  font-[400] text-[17px] ">
-              Username
-            </label>
-            <input
-              className="w-full h-[65px] py-1 rounded-md  border-gray-300 text-[#344054] px-2 inline-none mb-4  bg-[#F6F8FE]"
-              type="username"
-              placeholder="Enter username..."
-              ref={userNameRef}
-            />
-          </div>
-          <div className="mt-3">
-            <label className="text-[#344054] flex text-start  mb-1   font-[400] text-[17px] ">
+
+          <div className={rowsClassName}>
+            <Input type="email" placeholder="Enter email" ref={emailRef}>
               E-mail
-            </label>
-            <input
-              className="w-full h-[65px] py-1 rounded-md  border-gray-300 px-2 inline-none mb-4  bg-[#F6F8FE]  text-[#B8B8B8]"
-              type="email"
-              placeholder="Enter e-mail "
-              ref={emailRef}
-            />
-          </div>
-          <div className="mt-3">
-            <label className="text-[#738096] flex text-start    font-[400] text-[17px] ">
-              Phone number
-            </label>
-            <input
-              className="w-full h-[65px] py-1 rounded-md  border-gray-300  px-2 inline-none mb-4  bg-[#F6F8FE]  text-[#B8B8B8]"
-              type="phone number"
-              placeholder="000 000 000"
+            </Input>
+            <Input
+              type="phone-number"
+              placeholder="000 0000 000"
               ref={phoneNoRef}
-            />
+            >
+              Phone number
+            </Input>
           </div>
 
-          <div className="">
-            <label className="text-[#344054] flex text-start    font-[400] text-[17px] ">
+          <div className={rowsClassName}>
+            <Input placeholder="Enter gender" ref={genderRef}>
               Gender
-            </label>
-            <select ref={genderRef}>
-              <option value={"M"}>Male</option>
-              <option value="F">Female</option>
-            </select>
+            </Input>
+            <Input placeholder="DD/MM/YYYY " ref={dobRef}>
+              Date of birth
+            </Input>
           </div>
 
-          <div className="mt-3">
-            <label className="text-[#344054] flex text-start    font-[400] text-[17px] ">
-              Password
-            </label>
-            <input
-              className="w-full h-[65px] py-1 rounded-md  border-gray-300  px-2 inline-none mb-4  bg-[#F6F8FE] text-[#B8B8B8]"
+          <div className={rowsClassName}>
+            <Input
               type="password"
-              placeholder="enter password "
+              placeholder="Enter password"
               ref={passwordRef}
-            />
-          </div>
-          <div className="mt-3">
-            <label className="text-[#344054] flex text-start    font-[400] text-[17px] ">
-              Confirm password
-            </label>
-            <input
-              className="w-full h-[65px] py-1 rounded-md  border-gray-300  px-2 inline-none mb-4  bg-[#F6F8FE] text-[#B8B8B8]"
+            >
+              Password
+            </Input>
+            <Input
               type="password"
-              placeholder="confirm password "
+              placeholder="Confirm password"
               ref={confirmPasswordRef}
-            />
+            >
+              E-mail
+            </Input>
           </div>
-        </div>
-        <div className="flex justify-center items-center text-start mx-start  ">
-          <div className="jusify-start items-start contetnt-start ">
+          <div className="flex items-start justify-center gap-6 my-[2em]">
             <input
-              className=" mt-[20px] w-[50px] h-[35px] py-1 rounded-md  border-gray-300   px-2 inline-none mb-4  bg-[#F6F8FE] text-[#B8B8B8]"
+              className="w-[30px] h-[30px] border border-solid border-black "
               type="checkbox"
               ref={areyouSureRef}
             />
-          </div>
-          <div>
-            <p className=" font-[Raleway] p-2 text-[15px] ">
+
+            <p className=" font-[Raleway] text-[16px] ">
               By ticking the box you agree to receive our marketing and
               notification mails from us including our terms of service and
               privacy policy
             </p>
           </div>
         </div>
-        <button className="flex justify-center items-center mx-auto content-center bg-[#10328C] font-[Raleway]  text[20px] text-white py-[0.6rem] px-[3rem]  rounded-md  hover:bg-[#5d8aa8] transition-colors mb-10">
-          Register
-        </button>
+        <div className="flex flex-col items-center mx-auto gap-2">
+          <button className="flex items-center justify-center h-[3em] bg-[#10328C] text[20px] text-white rounded-md hover:bg-[#5d8aa8] w-[100%] xl2:w-[500px]">
+            Sign Up
+          </button>
+          <p>
+            Already have an account?{" "}
+            <Link className="text-[blue] font-[500]">Log In</Link>
+          </p>
+        </div>
       </form>
     </div>
   );
