@@ -36,6 +36,7 @@ const Header = () => {
               border="2px solid #10328c"
               backgroundColor="#ffffff"
               color="#10328c"
+              hoverColor="#ffffff"
             >
               View Members
               <BsArrowRightShort />
