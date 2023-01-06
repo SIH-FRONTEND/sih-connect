@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 // import Profile from "../components/Profile/Profile";
 import UserProfile from "../components/profile/UserProfile";
 
-
 const ProfilePage = () => {
   const { id } = useParams();
   console.log(id);
@@ -14,11 +13,7 @@ const ProfilePage = () => {
 
   //writes logic that fetches information about a single techie
   //this must be async
-  return (
-    <div>
-      <UserProfile />
-    </div>
-  );
+  return <UserProfile />;
 };
 
 export default ProfilePage;

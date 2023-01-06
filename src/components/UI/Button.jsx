@@ -16,7 +16,7 @@ const ButtonControl = styled.button`
     width: ${(props) => props.width || "200px"};
     border-radius: 8px;
     margin: 1em;
-    font-size: 1.2em;
+    font-size: ${({ fontSize }) => fontSize || "1.2em"};
     border: ${(props) => props.border || 0};
     cursor: pointer;
   }
@@ -33,6 +33,7 @@ const Button = ({
   color,
   type,
   border,
+  fontSize,
 }) => {
   return (
     <ButtonControl
@@ -43,6 +44,7 @@ const Button = ({
       color={color}
       hoverColor={hoverColor}
       width={width}
+      fontSize={fontSize}
     >
       {children}
     </ButtonControl>

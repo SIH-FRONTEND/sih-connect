@@ -1,6 +1,7 @@
 //importing from styled component
 import styled from "styled-components";
 
+//using styled components to styled div in order to account for hover
 const ImageControl = styled.div`
   & {
     width: ${({ width }) => width || "9em"};

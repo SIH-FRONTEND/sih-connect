@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 //importing components
-import Input from "./Input.jsx";
+import Button from "../UI/Button.jsx";
 
 //importing Global function
 import { loginHandler } from "../../API/authAPI.js";
@@ -62,6 +62,13 @@ const Login = () => {
       timer;
     }, []);
   }, [error]);
+
+  const rowClassName =
+    "flex items-center justify-center w-full h-[50px] rounded-md border-gray-300 p-3 bg-[#F6F8FE] ";
+
+  const inputClassName =
+    "w-full h-[100%] p-[.5em] border border-0 focus:outline-0 hover:outline-0 active:outline-0 bg-[#F6F8FE] text-[.9em] ";
+
   return (
     <div className="w-[100%]">
       <form
@@ -75,43 +82,29 @@ const Login = () => {
             className='h-[100%] w-[100%] object-fit" alt="Logo '
           />
         </div>
-        <div className="xl2:w-[50%] w-full">
+        <div className={rowClassName}>
+          <AiOutlineMail size={25} />
           <input
             ref={emailRef}
-            className=" w-full h-[50px] rounded-md  border-gray-300  px-2 inline-none   bg-[#F6F8FE]  text-[12px] p-[.5em]  "
+            className={inputClassName}
             type="email"
             placeholder="Enter e-mail "
           />
-
-          <AiOutlineMail
-            className="absolute left-[1rem] top-[1.2rem]"
-            size={25}
-          />
         </div>
 
-        <div className=" xl2:w-[50%] w-full">
-          <div>
+        <div className=" xl2:w-[100%] w-full">
+          <div className={rowClassName}>
+            <MdLockOutline size={25} />
             <input
               ref={passwordRef}
-              className=" w-full h-[50px] rounded-md  border-gray-300  px-2 inline-none   bg-[#F6F8FE]  text-[12px] p-[.5em]  "
+              className={inputClassName}
               type="email"
               placeholder="Enter password"
-            />
-
-            <AiOutlineMail
-              className="absolute left-[1rem] top-[1.2rem]"
-              size={25}
             />
           </div>
           <p className="text-[12px] font-bold">Forgot password</p>
         </div>
-
-        <button
-          type="submit"
-          className="xl2:w-[50%] w-full h-[60px] pb-[0.2rem] font-[bold] bg-[#10328C] text-[20px] text-white py-[0.6rem] px-[3rem] justify-center items-center text-center rounded-md hover:bg-[#5d8aa8] transition-colors mb-10"
-        >
-          Log in
-        </button>
+        <Button type="submit">Log In</Button>
 
         {isPending && !data && !error && <h1>Logging In</h1>}
         {error && !data && !isPending && <h1>Login Unsuccessful</h1>}
