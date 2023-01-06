@@ -30,7 +30,10 @@ const UserProfile = (props) => {
 
   return (
     <div>
-      <div style={{ border: "2px solid red" }} className="w-full xl2:w-[70%] m-auto">
+      <div
+        style={{ border: "2px solid red" }}
+        className="w-full xl2:w-[70%] m-auto"
+      >
         <div className="">
           <div className="active"></div>
           <div className="h-48 w-48 mt-20">
