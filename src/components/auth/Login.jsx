@@ -3,6 +3,9 @@ import React, { useState, useRef, useEffect } from "react";
 // importing from react-router-dom
 import { useNavigate } from "react-router-dom";
 
+//importing components
+import Button from "../UI/Button.jsx";
+
 //importing Global function
 import { loginHandler } from "../../API/authAPI.js";
 
@@ -59,53 +62,49 @@ const Login = () => {
       timer;
     }, []);
   }, [error]);
+
+  const rowClassName =
+    "flex items-center justify-center w-full h-[50px] rounded-md border-gray-300 p-3 bg-[#F6F8FE] ";
+
+  const inputClassName =
+    "w-full h-[100%] p-[.5em] border border-0 focus:outline-0 hover:outline-0 active:outline-0 bg-[#F6F8FE] text-[.9em] ";
+
   return (
-    <form onSubmit={submitFormHandler}>
-      <div className="  ">
+    <div className="w-[100%]">
+      <form
+        onSubmit={submitFormHandler}
+        style={{ background: "red" }}
+        className="flex flex-col items-center gap-[1em] w-[100%] xl2:w-[60%] mx-auto mb-[7em] pt-[2em]"
+      >
         <div className="h-[5rem] w-[5rem] mx-auto text-center mb-16">
           <img
             src={profile}
             className='h-[100%] w-[100%] object-fit" alt="Logo '
           />
         </div>
-
-        <div className="mt-3  mx-auto w-[30rem]">
-          <div className="mt-3  relative ">
-            <input
-              ref={emailRef}
-              className=" w-full h-[60px] pb-[0.2rem] rounded-md  border-gray-300  px-2 inline-none   bg-[#F6F8FE]  text-[12px] pl-[3.5rem]   "
-              type="email"
-              placeholder="Enter e-mail "
-            />
-            <div className="absolute left-[1rem] top-[1.2rem]">
-              <AiOutlineMail size={25} />
-            </div>
-          </div>
+        <div className={rowClassName}>
+          <AiOutlineMail size={25} />
+          <input
+            ref={emailRef}
+            className={inputClassName}
+            type="email"
+            placeholder="Enter e-mail "
+          />
         </div>
-        <div className="mt-16  mx-auto w-[30rem]">
-          <div className="mt-3  relative ">
+
+        <div className=" xl2:w-[100%] w-full">
+          <div className={rowClassName}>
+            <MdLockOutline size={25} />
             <input
               ref={passwordRef}
-              className=" w-full h-[60px] pb-[0.2rem] rounded-md  border-gray-300  px-2 inline-none   bg-[#F6F8FE]  text-[12px] pl-[3.5rem]   "
-              type="password"
-              placeholder="Enter password "
+              className={inputClassName}
+              type="email"
+              placeholder="Enter password"
             />
-            <div className="absolute left-[1rem] top-[1.2rem]">
-              <MdLockOutline size={25} />
-            </div>
-            <div className="absolute left-[23rem] top-[1.2rem] text-[#10328C]">
-              <p className="text-[12px] font-bold">Forgot password</p>
-            </div>
           </div>
+          <p className="text-[12px] font-bold">Forgot password</p>
         </div>
-        <div className="mt-16  mx-auto w-[30rem]">
-          <button
-            type="submit"
-            className="w-full h-[60px] pb-[0.2rem] font-[bold] bg-[#10328C] text-[20px] text-white py-[0.6rem] px-[3rem] justify-center items-center text-center rounded-md hover:bg-[#5d8aa8] transition-colors mb-10"
-          >
-            Log in
-          </button>
-        </div>
+        <Button type="submit">Log In</Button>
 
         {isPending && !data && !error && <h1>Logging In</h1>}
         {error && !data && !isPending && <h1>Login Unsuccessful</h1>}
@@ -130,8 +129,8 @@ const Login = () => {
             <h3 className="font-bold text-[21px]">sign up</h3>
           </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
 

@@ -14,9 +14,17 @@ import Nav from "./Nav";
 const LayoutControl = styled.main`
   & > * {
     width: 100%;
+    margin: 0 auto;
   }
   & > * > * {
-    padding: 2em 68px;
+    padding: 1em 5em;
+    margin: auto;
+  }
+  @media (max-width: 768px) {
+    & > * > * {
+      padding: 1.6em;
+      width: 100%;
+    }
   }
 `;
 
