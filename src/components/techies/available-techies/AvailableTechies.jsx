@@ -5,6 +5,7 @@ import useFetch from "../../../hooks/useFetch";
 import LoadingSpinner from "../../UI/LoadingSpinner";
 import TechiesCard from "../TechiesCard";
 import Button from "../../UI/Button";
+import ErrorMessage from "../../UI/ErrorMessage";
 
 //url for data transfer
 const url = "https://starthubconnect.adaptable.app/user/latest-members";
@@ -28,7 +29,7 @@ const AvailableTechies = () => {
         </div>
       )}
       {isPending && !error && !data && <LoadingSpinner />}
-      {error && !isPending && !data && <h1>Error Loading Data</h1>}
+      {error && !isPending && !data && <ErrorMessage bg={"#10328c"} />}
 
       {data && <Button border={"2px solid #687eb6"}>See more</Button>}
     </div>

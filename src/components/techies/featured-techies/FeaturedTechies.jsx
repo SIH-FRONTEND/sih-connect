@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
-
 //importing default
 import useFetch from "../../../hooks/useFetch";
 
 //importing supporting components
 import LoadingSpinner from "../../UI/LoadingSpinner";
 import DisplayPhoto from "../DisplayPhoto";
+import ErrorMessage from "../../UI/ErrorMessage";
 
 const url = "https://starthubconnect.adaptable.app/user/top-members";
 
@@ -18,10 +17,8 @@ const FeaturedTechies = () => {
       <h1 className="text-white text-[4vmin] font-[400] mb-[1rem]">
         Featured techies
       </h1>
-      {!data && !isPending && error && <h1>Could not fetch data</h1>}
-      {isPending && !error && !data && (
-        <LoadingSpinner color={"#ffffff"} />
-      )}
+      {!data && !isPending && error && <ErrorMessage />}
+      {isPending && !error && !data && <LoadingSpinner color={"#ffffff"} />}
       {data && !isPending && !error && (
         <div className="grid grid-cols-6 phone:grid-cols-3 lg2:grid-cols-6">
           {data.items.map((techie) => (
