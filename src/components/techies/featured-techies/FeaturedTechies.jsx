@@ -19,7 +19,9 @@ const FeaturedTechies = () => {
         Featured techies
       </h1>
       {!data && !isPending && error && <h1>Could not fetch data</h1>}
-      {isPending && !error && !data && <LoadingSpinner />}
+      {isPending && !error && !data && (
+        <LoadingSpinner color={"#ffffff"} />
+      )}
       {data && !isPending && !error && (
         <div className="grid grid-cols-6 phone:grid-cols-3 lg2:grid-cols-6">
           {data.items.map((techie) => (

@@ -3,9 +3,9 @@ import "../styles/index.css";
 
 //Importing Components
 
-import FeaturedTechies from "../components/Techies/featured-techies/FeaturedTechies";
+import FeaturedTechies from "../components/techies/featured-techies/FeaturedTechies";
 import CarouselSlider from "../components/carousel/CarouselSlider";
-import AvailableTechies from "../components/Techies/available-techies/AvailableTechies";
+import AvailableTechies from "../components/techies/available-techies/AvailableTechies";
 import Header from "../components/header/Header";
 import SubHeader from "../components/header/SubHeader";
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 // importing Components
-import TechiesCard from '../components/Techies/TechiesCard'
+import TechiesCard from '../components/techies/TechiesCard'
 
 const url = 'https://jsonplaceholder.typicode.com/photos'
 const Techies = () => {

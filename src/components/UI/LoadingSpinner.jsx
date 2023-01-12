@@ -1,8 +1,8 @@
-import React from "react";
 import styled from "styled-components";
 
-const SpinnerDiv = styled.div`
+const SpinnerControl = styled.div`
   & {
+    margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,7 +22,7 @@ const SpinnerDiv = styled.div`
     font-weight: 600;
     font-size: 32px;
     line-height: 150%;
-    color: #10328c;
+    color: ${({ color }) => color || "#10328c"};
   }
 
   & .loading-text p {
@@ -41,7 +41,7 @@ const SpinnerDiv = styled.div`
     position: relative;
     width: 80px;
     height: 80px;
-    transform: scale(2.7);
+    transform: scale(${({ scale }) => scale || "2"});
   }
 
   .lds-default div {
@@ -49,7 +49,7 @@ const SpinnerDiv = styled.div`
     position: absolute;
     width: 8px;
     height: 8px;
-    background: #10328c;
+    background: ${({ color }) => color || "#10328c"};
     border-radius: 50%;
     animation: lds-default 1.2s linear infinite;
   }
@@ -167,9 +167,9 @@ const SpinnerDiv = styled.div`
     }
   }
 `;
-const LoadingSpinner = () => {
+const LoadingSpinner = ({ color, scale }) => {
   return (
-    <SpinnerDiv className="pageloader">
+    <SpinnerControl color={color} scale={scale}>
       <div className="spinner">
         <div className="lds-default">
           <div></div>
@@ -187,10 +187,10 @@ const LoadingSpinner = () => {
         </div>
       </div>
       <div className="loading-text">
-        <h1>Loading...</h1>
+        <h1>Fetching Content...</h1>
         <p>This will only take a moment....</p>
       </div>
-    </SpinnerDiv>
+    </SpinnerControl>
   );
 };
 

@@ -16,13 +16,13 @@ const AvailableTechies = () => {
   if (data) console.log(data);
 
   return (
-    <section className="bg-[#f6f8fe] flex flex-col justify-center text-center items-center py-[3rem]">
-      <h2 className=" flex  justify-center text-center items-center font-[500] text-[40px]">
-        Avialable techies
+    <div className="bg-[#f6f8fe] text-center py-[3rem] h-full] flex flex-col items-center">
+      <h2 className=" text-[4vmin] font-[400] mb-[1rem] text-[#10328c]">
+        Available techies
       </h2>
       {data && !isPending && !error && (
         <div className="flex flex-wrap justify-center items-center py-5  gap-[18px]">
-          {data.items.slice(0, 12).map((item) => {
+          {data.items.slice(0, 10).map((item) => {
             return <TechiesCard key={item.id} {...item} />;
           })}
         </div>
@@ -31,7 +31,7 @@ const AvailableTechies = () => {
       {error && !isPending && !data && <h1>Error Loading Data</h1>}
 
       {data && <Button border={"2px solid #687eb6"}>See more</Button>}
-    </section>
+    </div>
   );
 };
 
