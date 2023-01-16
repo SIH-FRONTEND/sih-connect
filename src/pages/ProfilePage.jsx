@@ -1,19 +1,30 @@
-import React from "react";
+import { Fragment } from "react";
+
+//importing custom hooks
+import useFetch from "../hooks/useFetch";
 
 //importing navigation params from react-router-dom
 import { useParams } from "react-router-dom";
 // import Profile from "../components/Profile/Profile";
 import UserProfile from "../components/profile/UserProfile";
+import LoadingSpinner from "./../components/UI/LoadingSpinner";
 
 const ProfilePage = () => {
   const { id } = useParams();
-  console.log(id);
 
-  //work here first
+  const { data, isPending, error } = useFetch(
+    `https://starthubconnect.adaptable.app/user/find/${id}`
+  );
 
-  //writes logic that fetches information about a single techie
-  //this must be async
-  return <UserProfile />;
+
+
+  return (
+    <Fragment>
+      {!isPending && !data && error && <h1>User not available</h1>}
+      {isPending && !data && <LoadingSpinner />}
+      {data && !isPending && !error && <UserProfile user={data} />}
+    </Fragment>
+  );
 };
 
 export default ProfilePage;

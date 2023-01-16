@@ -10,6 +10,11 @@ const SpinnerControl = styled.div`
     height: 500px;
     width: 100%;
   }
+  & > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   & .loading-text {
     display: flex;
@@ -31,10 +36,6 @@ const SpinnerControl = styled.div`
     font-weight: 400;
     font-size: 20px;
     line-height: 150%;
-  }
-
-  .spinner {
-    margin-block-end: 100px;
   }
 
   .lds-default {
