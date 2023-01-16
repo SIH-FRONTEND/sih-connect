@@ -1,3 +1,6 @@
+//importing components
+import Button from "../UI/Button";
+
 //importimg icons
 import Starthublogo from "../../assets/starthub_logo.svg";
 import { IconContext } from "react-icons";
@@ -21,7 +24,7 @@ const Nav = () => {
   //using location to check path to display conditional screen
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   return (
-    <nav className="pl-10 pr-16 py-5 flex flex-column items-center justify-between">
+    <nav className="xl2:px-16 px-2 flex flex-column items-center justify-between h-[6em]">
       <Link to="/" className="object-cover">
         <img className="" src={Starthublogo} />
       </Link>
@@ -46,15 +49,14 @@ const Nav = () => {
         </IconContext.Provider>
       )}
       {!isLoggedIn && (
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center gap-2">
           <p className="text-lg font-bold">
             {pathname === LOGIN ? "Not yet a member?" : "Already a Member?"}
           </p>
-          <Link
-            to={pathname === LOGIN ? REGISTER : LOGIN}
-            className="text-white w-[170px] h-[53px] mx-[31px] bg-[#10328C] rounded-xl p-[auto] text-base flex items-center justify-center"
-          >
-            {pathname === LOGIN ? "Sign Up" : "Sign In"}
+          <Link to={pathname === LOGIN ? REGISTER : LOGIN}>
+            <Button margin="0">
+              {pathname === LOGIN ? "Sign Up" : "Sign In"}
+            </Button>
           </Link>
         </div>
       )}
