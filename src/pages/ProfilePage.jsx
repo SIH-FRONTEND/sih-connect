@@ -16,14 +16,12 @@ const ProfilePage = () => {
     `https://starthubconnect.adaptable.app/user/find/${id}`
   );
 
-
-
   return (
-    <Fragment>
+    <div>
       {!isPending && !data && error && <h1>User not available</h1>}
       {isPending && !data && <LoadingSpinner />}
       {data && !isPending && !error && <UserProfile user={data} />}
-    </Fragment>
+    </div>
   );
 };
 

@@ -16,37 +16,24 @@ const SpinnerControl = styled.div`
     justify-content: center;
   }
 
-  & .loading-text {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  & .loading-text h1 {
-    font-weight: 600;
-    font-size: 32px;
-    line-height: 150%;
-    color: ${({ color }) => color || "#10328c"};
-  }
-
-  & .loading-text p {
-    font-family: "Outfit";
+  & p {
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 150%;
+    color: ${({ color }) => color || "#10328c"};
+    margin-top: 16px;
   }
 
   .lds-default {
     position: relative;
     width: 80px;
     height: 80px;
-    transform: scale(${({ scale }) => scale || "2"});
+    transform: scale(${({ scale }) => scale || "1.2"});
   }
 
   .lds-default div {
-    transform: scale(1.8);
+    transform: scale(1.9);
     position: absolute;
     width: 8px;
     height: 8px;
@@ -159,10 +146,7 @@ const SpinnerControl = styled.div`
       transform: scale(1.5);
     }
 
-    & .loading-text h1 {
-      font-size: 26px;
-    }
-
+  
     & .loading-text p {
       font-size: 16px;
     }
@@ -187,10 +171,7 @@ const LoadingSpinner = ({ color, scale }) => {
           <div></div>
         </div>
       </div>
-      <div className="loading-text">
-        <h1>Fetching Content...</h1>
-        <p>This will only take a moment....</p>
-      </div>
+      <p>Loading</p>
     </SpinnerControl>
   );
 };
