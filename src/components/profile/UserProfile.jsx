@@ -13,29 +13,14 @@ import {
   BsShare,
 } from "react-icons/bs";
 import { GoLocation } from "react-icons/go";
+import { GrFormView } from "react-icons/gr";
+import { AiFillEdit } from "react-icons/ai";
 
 //importing components
 import Button from "../UI/Button";
 
 const UserProfile = (props) => {
   const { user } = props;
-  console.log(user);
-  const {
-    address,
-    bio,
-    email,
-    facebook_url,
-    experience_year_count,
-    cover_image,
-    firstname,
-    lastname,
-    instagram_url,
-    is_top_member,
-    linkdln_url,
-    twitter_url,
-    profile_image,
-    skills,
-  } = props.user;
 
   //renders for each Icon row
   const IconsRow = (args) => {
@@ -50,7 +35,7 @@ const UserProfile = (props) => {
   };
 
   const ProfileImage = (
-    <div className="h-[16em] w-[16em] relative">
+    <div className="h-[16em] w-[16em] relative flex-none">
       <div className="bg-[#6B6B6B] h-7 w-7 border-4 border-solid border-[#fff] rounded-full absolute top-[1em] right-[1.8em]"></div>
       <img
         src={user.profile_image}
@@ -59,26 +44,7 @@ const UserProfile = (props) => {
     </div>
   );
 
-  const ProfileActions = (
-    <div className="flex ">
-      <Button fontSize="1em" width="9em" margin=".1em">
-        Edit Profile
-      </Button>
-      <Button
-        fontSize="1em"
-        width="9em"
-        backgroundColor="#ffffff"
-        border="2px solid #10328C"
-        color="#10328C"
-        hoverColor="#ffffff"
-        margin=".1em"
-      >
-        View Projects
-      </Button>
-    </div>
-  );
-
-  const NameSection = (
+  const NameDetail = (
     <h1 className="text-[20px] font-bold">
       Uduak Eno
       <span className="font-[400]">
@@ -88,21 +54,56 @@ const UserProfile = (props) => {
     </h1>
   );
 
-  const DetailsSection = (
+  const MoreInfoDetail = (
     <Fragment>
       <h2 className="text-[20px] flex items-center justify-between">
-        UI & UX Designer <BsShare size="24" />
+        UI & UX Designer <BsShare className="text-[24px] mr-[1em]" />
       </h2>
 
       <h2 className="text-[20px] flex items-center ">
-        <GoLocation size="24" />
+        <GoLocation className="text-[24px] mr-[.5em]" />
         Uyo, Nigeria
       </h2>
     </Fragment>
   );
 
+  const ActionsDetail = (
+    <div className="flex align-center">
+      <Button
+        fontSize="1em"
+        width="11em"
+        margin=".1em"
+        className="flex align-center justify-center"
+      >
+        <AiFillEdit className="text-[24px] text-[#fff] mx-[4px]" />
+        Edit Profile
+      </Button>
+      <Button
+        fontSize="1em"
+        width="11em"
+        backgroundColor="#ffffff"
+        border="2px solid #10328C"
+        color="#10328C"
+        hoverColor="#ffffff"
+        margin=".1em"
+        className="flex align-center justify-center"
+      >
+        <GrFormView className="text-[24px] text-[#10328C] mx-[4px]" />
+        View Projects
+      </Button>
+    </div>
+  );
+
+  const DetailSection = (
+    <div className="flex flex-col justify-evenly flex-none gap-3">
+      {NameDetail}
+      {MoreInfoDetail}
+      {ActionsDetail}
+    </div>
+  );
+
   const SocialSection = (
-    <div className="grid grid-cols-2 grid-rows-2">
+    <div className=" grid xl2:grid-cols-2 xl2:grid-rows-2 grid-cols-4 grid-rows-1 xl2:justify-items-center flex-1 content-center">
       {user.linkdln_url || (
         <IconsRow
           text="LinkedIn"
@@ -144,33 +145,24 @@ const UserProfile = (props) => {
   );
 
   return (
-    <div>
-      <div
-        style={{ border: "2px solid green" }}
-        className="w-full xl2:w-[70%] m-auto"
-      >
-        <div className="flex ">
-          {ProfileImage}
-          <div className="flex flex-col justify-evenly">
-            {NameSection}
-            {DetailsSection}
-            {ProfileActions}
-          </div>
-          {SocialSection}
-        </div>
+    <div className="w-full xl2:w-[70%] m-auto mb-[100px]">
+      <div className="flex gap-5 xl2:flex-row flex-col">
+        {ProfileImage}
+        {DetailSection}
+        {SocialSection}
+      </div>
 
-        <div>
-          <h1 className=" font-semibold text-[25px]">Bio</h1>
-          {user.bio}
-          {!user.bio && (
-            <p className=" w-[100%] h-full py-1 px-10  rounded-lg   border-gray-300 text-[#344054] inline-none mb-4  bg-[#F6F8FE]">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet
-              laudantium porro iusto alias ipsum, voluptatibus exercitationem
-              neque provident at similique dolores, velit placeat quaerat
-              explicabo eum quam magni iure sint.
-            </p>
-          )}
-        </div>
+      <div className="mt-[32px]">
+        <h1 className=" font-semibold text-[25px]">Bio</h1>
+        {user.bio}
+        {!user.bio && (
+          <p className=" w-[100%] h-full p-4 rounded-lg   border-gray-300 text-[#344054] inline-none mb-4  bg-[#F6F8FE]">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet
+            laudantium porro iusto alias ipsum, voluptatibus exercitationem
+            neque provident at similique dolores, velit placeat quaerat
+            explicabo eum quam magni iure sint.
+          </p>
+        )}
       </div>
     </div>
   );

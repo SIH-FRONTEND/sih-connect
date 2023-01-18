@@ -1,17 +1,25 @@
 // importing from react
 import { useRef, useState } from "react";
 
+//importing from react-redux
+import { useDispatch } from "react-redux";
+
+//importing from redux store
+import { authActions } from "../../store/authSlice";
+
 //importing from react-router-dom
 import { useNavigate, Link } from "react-router-dom";
 
 //importing components
 import Input from "./Input";
 import Button from "../UI/Button";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 //importing api function
 import { loginHandler } from "../../API/authAPI";
 
 const Register = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   //initializing states
   const [error, setError] = useState(null);
@@ -24,7 +32,7 @@ const Register = () => {
   const emailRef = useRef();
   const phoneNoRef = useRef();
   const genderRef = useRef();
-  const dobRef = useRef();
+  const userNameRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
   const areyouSureRef = useRef();
@@ -38,7 +46,7 @@ const Register = () => {
     const email = emailRef.current.value;
     const phone_number = phoneNoRef.current.value;
     const gender = genderRef.current.value;
-    const dob = dobRef.current.value;
+    const username = userNameRef.current.value;
     const password = passwordRef.current.value;
     const confirmPassword = confirmPasswordRef.current.value;
     const areyouSure = areyouSureRef.current.value;
@@ -53,22 +61,24 @@ const Register = () => {
       email,
       phone_number,
       gender,
-      dob,
+      username,
       password,
       confirmPassword,
     };
+    console.log(user);
 
     try {
       setIsPending(true);
-      const result = await loginHandler(
+      const { data } = await loginHandler(
         "https://starthubconnect.adaptable.app/auth/register",
         user
       );
-      console.log(result);
-      setData(result);
+      console.log(data);
+      setData(data);
       setIsPending(false);
       setError(null);
-      navigate("/profile");
+      dispatch(authActions.handleLogin());
+      navigate(`/${data.id}/profile`, { replace: true });
     } catch (error) {
       console.log(error);
       setError(error);
@@ -88,7 +98,7 @@ const Register = () => {
       <form
         onSubmit={submitFormHandler}
         className="flex flex-col items-center gap-[1em] w-[100%] xl2:w-[60%] mx-auto mb-[7em]"
-        style={{ backgroundColor: "red" }}
+        style={{ backgroundColor: "#ccc" }}
       >
         <p className="font-bold text-[28px] mb-[1em]">Sign Up!</p>
         <div className="flex flex-col gap-[1em]">
@@ -105,6 +115,12 @@ const Register = () => {
             <Input type="email" placeholder="Enter email" ref={emailRef}>
               E-mail
             </Input>
+            <Input placeholder="Enter username " ref={userNameRef}>
+              Username
+            </Input>
+          </div>
+
+          <div className={rowsClassName}>
             <Input
               type="phone-number"
               placeholder="000 0000 000"
@@ -112,14 +128,8 @@ const Register = () => {
             >
               Phone number
             </Input>
-          </div>
-
-          <div className={rowsClassName}>
             <Input placeholder="Enter gender" ref={genderRef}>
               Gender
-            </Input>
-            <Input placeholder="DD/MM/YYYY " ref={dobRef}>
-              Date of birth
             </Input>
           </div>
 
