@@ -3,6 +3,10 @@ import React, { useState, useRef, useEffect } from "react";
 // importing from react-router-dom
 import { useNavigate } from "react-router-dom";
 
+//importing from store and react-redux
+import { useDispatch } from "react-redux";
+import { authActions } from "../../store/authSlice.js";
+
 //importing components
 import Button from "../UI/Button.jsx";
 
@@ -15,7 +19,10 @@ import { MdLockOutline } from "react-icons/md";
 import googleIcon from "../../assets/goggle_icon.png";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  //refs
   const emailRef = useRef();
   const passwordRef = useRef();
 
@@ -39,10 +46,11 @@ const Login = () => {
         { email, password }
       );
       console.log(result);
-      setData(result);
+      setData(result.user);
       setIsPending(false);
       setError(null);
-      navigate("/profile");
+      dispatch(authActions.handleLogin(result.token));
+      navigate(`/${data.id}/profile`, { replace: true });
     } catch (error) {
       console.log(error);
       setError(error);
@@ -73,7 +81,6 @@ const Login = () => {
     <div className="w-[100%]">
       <form
         onSubmit={submitFormHandler}
-        style={{ background: "red" }}
         className="flex flex-col items-center gap-[1em] w-[100%] xl2:w-[60%] mx-auto mb-[7em] pt-[2em]"
       >
         <div className="h-[5rem] w-[5rem] mx-auto text-center mb-16">
@@ -98,7 +105,7 @@ const Login = () => {
             <input
               ref={passwordRef}
               className={inputClassName}
-              type="email"
+              type="password"
               placeholder="Enter password"
             />
           </div>

@@ -73,7 +73,7 @@ const Register = () => {
         "https://starthubconnect.adaptable.app/auth/register",
         user
       );
-      console.log(data);
+
       setData(data);
       setIsPending(false);
       setError(null);
