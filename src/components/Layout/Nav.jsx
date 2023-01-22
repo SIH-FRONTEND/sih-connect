@@ -8,8 +8,8 @@ import { useState, useRef } from "react";
 import Starthublogo from "../../assets/starthub_logo.svg";
 import { IconContext } from "react-icons";
 import { FaSistrix } from "react-icons/fa";
-import { RxBell } from "react-icons/rx";
-import { RxAvatar } from "react-icons/rx";
+import { RxBell, RxAvatar } from "react-icons/rx";
+
 import { FiMenu } from "react-icons/fi";
 
 //importing for store actions
@@ -40,7 +40,7 @@ const Nav = () => {
     const response = await fetch(
       `https://starthubconnect.adaptable.app/user/filter?search_string=${searchParam}`
     );
-    console.log(response)
+    console.log(response);
 
     // const fetchData = await JSON.parse(response);
 
@@ -65,7 +65,7 @@ const Nav = () => {
             <form
               onSubmit={searchHandler}
               action="submit"
-              className="absolute top-[6em] border border-solid border-black "
+              className="absolute xl2:static top-[6em] border border-solid border-black "
             >
               <input type="text" ref={searchRef} />
               <button type="submit">Search</button>
