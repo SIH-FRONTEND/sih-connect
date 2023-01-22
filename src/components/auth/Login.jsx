@@ -45,17 +45,15 @@ const Login = () => {
         "https://starthubconnect.adaptable.app/auth/login",
         { email, password }
       );
-      console.log(result);
+      // console.log(result);
       setData(result.user);
       setIsPending(false);
-      setError(null);
       dispatch(authActions.handleLogin(result.token));
       navigate(`/${data.id}/profile`, { replace: true });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       setError(error);
       setIsPending(false);
-      setData(null);
     }
   };
 

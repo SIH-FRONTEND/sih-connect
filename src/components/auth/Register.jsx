@@ -76,14 +76,12 @@ const Register = () => {
 
       setData(data);
       setIsPending(false);
-      setError(null);
       dispatch(authActions.handleLogin());
-      navigate(`/${data.id}/profile`, { replace: true });
+      navigate(`/login`, { replace: true });
     } catch (error) {
       console.log(error);
       setError(error);
       setIsPending(false);
-      setData(null);
     }
   };
   //className for each row of inputs
