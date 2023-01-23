@@ -1,6 +1,9 @@
 //importing from styled component
 import styled from "styled-components";
 
+//importing from react-router-dom
+import { useNavigate } from "react-router-dom";
+
 //using styled components to styled div in order to account for hover
 const ImageControl = styled.div`
   & {
@@ -41,9 +44,22 @@ const ImageControl = styled.div`
   }
 `;
 
-const DisplayPhoto = ({ img, alt, width, backgroundColor, currentStatus }) => {
+const DisplayPhoto = ({
+  img,
+  alt,
+  width,
+  backgroundColor,
+  currentStatus,
+  id,
+}) => {
+  //declaring navigate
+  const navigate = useNavigate();
+
+  const displayProfile = () => {
+    navigate(`/${id}/profile`);
+  };
   return (
-    <ImageControl className="h-24  w-24 ">
+    <ImageControl onClick={displayProfile} className="h-24  w-24 ">
       {currentStatus && (
         <div className=" absolute rounded-full right-2 top-3 border-2 border-white border-solid bg-[#1ED70E] h-[20px] w-[20px] z-[4]"></div>
       )}

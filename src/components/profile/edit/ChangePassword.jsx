@@ -1,6 +1,9 @@
-import React from "react";
-import showIcon from "../../assets/showpass_icon.png";
-import hideIcon from "../../assets/hidepass_icon.png";
+
+
+//importing static icons from assets
+import showIcon from '../../../assets/showpass_icon.png'
+import hideIcon from '../../../assets/hidepass_icon.png'
+
 
 const ChangePassword = () => {
   return (

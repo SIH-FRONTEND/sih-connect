@@ -2,8 +2,9 @@
 import React, { useState, Fragment } from "react";
 
 //imported components
-import EditUserProfile from "../components/profile/EditUserProfile";
-import ChangePassword from "../components/auth/ChangePassword";
+import EditUserProfile from "../components/profile/edit/EditUserProfile";
+import ChangePassword from "../components/profile/edit/ChangePassword";
+
 
 //Hardcoded Data
 const TEXT_DATA = {
@@ -29,7 +30,7 @@ const EditProfile = () => {
   return (
     <Fragment>
       <div
-        className="flex justify-evenly content-end text-end mx-end gap-0"
+        className="flex justify-evenly content-end text-end mx-end gap-0 flex-col xl2:flex-row"
         onClick={onEditProfileHandler}
       >
         <p
