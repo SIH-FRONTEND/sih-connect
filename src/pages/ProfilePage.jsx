@@ -1,5 +1,3 @@
-import { Fragment } from "react";
-
 //importing custom hooks
 import useFetch from "../hooks/useFetch";
 

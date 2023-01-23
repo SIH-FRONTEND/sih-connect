@@ -1,6 +1,12 @@
 //importing from react
 import { Fragment } from "react";
 
+//importing from react-redux
+import { useDispatch } from "react-redux";
+
+//importing from the store
+import { fetchedDataActions } from "../../store/fetchedData";
+
 //importing from react-router-dom
 import { Link } from "react-router-dom";
 
@@ -20,7 +26,10 @@ import { AiFillEdit } from "react-icons/ai";
 import Button from "../UI/Button";
 
 const UserProfile = (props) => {
+  const dispatch = useDispatch();
   const { user } = props;
+
+  dispatch(fetchedDataActions.storeUser(user));
 
   //renders for each Icon row
   const IconsRow = (args) => {
