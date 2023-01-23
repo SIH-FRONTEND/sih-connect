@@ -2,13 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const fetchedDataSlice = createSlice({
   name: "user-data",
-  initialState: { fetchUser: null },
+  initialState: { fetchedDetails: null },
   reducers: {
     storeUser(state, payload) {
-      state.fetchUser = payload.payload;
+      state.fetchedDetails = payload.payload;
     },
     discardUser(state, payload) {
-      state.fetchUser = null;
+      state.fetchedDetails = null;
     },
   },
 });

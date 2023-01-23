@@ -1,10 +1,12 @@
 //imported hooks
 import React, { useState, Fragment } from "react";
 
+//importing from react-redux
+import { useSelector } from "react-redux";
+
 //imported components
 import EditUserProfile from "../components/profile/edit/EditUserProfile";
 import ChangePassword from "../components/profile/edit/ChangePassword";
-
 
 //Hardcoded Data
 const TEXT_DATA = {
@@ -13,6 +15,9 @@ const TEXT_DATA = {
 };
 
 const EditProfile = () => {
+  //recalling stored details from fetched user
+  const userDetails = useSelector((state) => state.fetchedUser.fetchedDetails);
+
   const [showEditProfile, setShowEditProfile] = useState(true);
 
   const onEditProfileHandler = (event) => {
@@ -27,6 +32,7 @@ const EditProfile = () => {
       return;
     }
   };
+
   return (
     <Fragment>
       <div
@@ -48,7 +54,7 @@ const EditProfile = () => {
           Change Password
         </p>
       </div>
-      {showEditProfile && <EditUserProfile />}
+      {showEditProfile && <EditUserProfile user={userDetails} />}
       {!showEditProfile && <ChangePassword />}
     </Fragment>
   );

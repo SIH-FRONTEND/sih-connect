@@ -26,6 +26,7 @@ const Nav = () => {
   const searchRef = useRef();
   const [showSearch, setShowSearch] = useState(false);
   const { pathname } = useLocation();
+  
   //using location to check path to display conditional screen
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 

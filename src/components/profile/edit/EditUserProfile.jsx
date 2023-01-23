@@ -7,12 +7,16 @@ import DisplayPhoto from "../../techies/DisplayPhoto";
 //importing from react-icons
 import { TbCameraPlus } from "react-icons/tb";
 
-const EditUserProfile = () => {
+const EditUserProfile = ({ user }) => {
+  if (user) {
+    console.log(user);
+  }
+
   return (
     <div className=" flex justify-around flex-col xl2:flex-row ">
       <div className="">
         <div className=" flex justify-center content-center text-center">
-          <DisplayPhoto img={profilePic} />
+          <DisplayPhoto img={user.profile_image} />
 
           <TbCameraPlus />
         </div>
