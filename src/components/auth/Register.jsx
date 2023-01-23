@@ -88,90 +88,87 @@ const Register = () => {
   const rowsClassName = `flex flex-col xl2:flex-row items-center justify-between w-[100%]`;
 
   return (
-    <div className="w-[100%]">
+    <form
+      onSubmit={submitFormHandler}
+      className="flex flex-col items-center gap-[1em] w-[100%] xl2:w-[60%] mx-auto mb-[7em] border-2 border-solid border-black"
+    >
+      <p className="font-bold text-[28px] mb-[1em]">Register!</p>
+      <div className="flex flex-col gap-[1em]">
+        <div className={rowsClassName}>
+          <Input ref={firstNameRef} placeholder="Enter firstname...">
+            First name
+          </Input>
+          <Input ref={lastNameRef} placeholder="Enter lastname...">
+            Last name
+          </Input>
+        </div>
+
+        <div className={rowsClassName}>
+          <Input type="e-mail" placeholder="Enter email" ref={emailRef}>
+            E-mail
+          </Input>
+          <Input placeholder="Enter username " ref={userNameRef}>
+            Username
+          </Input>
+        </div>
+
+        <div className={rowsClassName}>
+          <Input
+            type="phone-number"
+            placeholder="000 0000 000"
+            ref={phoneNoRef}
+          >
+            Phone number
+          </Input>
+          <Input placeholder="Enter gender" ref={genderRef}>
+            Gender
+          </Input>
+        </div>
+
+        <div className={rowsClassName}>
+          <Input type="password" placeholder="Enter password" ref={passwordRef}>
+            Password
+          </Input>
+          <Input
+            type="password"
+            placeholder="Confirm password"
+            ref={confirmPasswordRef}
+          >
+            E-mail
+          </Input>
+        </div>
+        <div className="flex items-start justify-center gap-6 my-[2em]">
+          <input
+            className="xl2:w-[35px] xl2:h-[35px] h-[50px] w-[50px] border border-solid border-black "
+            type="checkbox"
+            ref={areyouSureRef}
+          />
+
+          <p className=" font-[Raleway] text-[16px] ">
+            By ticking the box you agree to receive our marketing and
+            notification mails from us including our terms of service and
+            privacy policy
+          </p>
+        </div>
+      </div>
+      <div className="flex flex-col items-center mx-auto gap-2 xl2:w-[70%] w-full">
+        <Button width={"100%"} type="submit">
+          Sign Up
+        </Button>
+        <p>
+          Already have an account?
+          <Link
+            className="ml-4 text-[blue] font-bold text-[21px] "
+            to={"/login"}
+          >
+            Log In
+          </Link>
+        </p>
+      </div>
       {isPending && !data && !error && <h1>Registering...</h1>}
       {error && !data && !isPending && <h1>Register Unsuccessful</h1>}
       {data && !isPending && <h1>Register Successful...</h1>}
-
-      <form
-        onSubmit={submitFormHandler}
-        className="flex flex-col items-center gap-[1em] w-[100%] xl2:w-[60%] mx-auto mb-[7em]"
-        style={{ backgroundColor: "#ccc" }}
-      >
-        <p className="font-bold text-[28px] mb-[1em]">Sign Up!</p>
-        <div className="flex flex-col gap-[1em]">
-          <div className={rowsClassName}>
-            <Input ref={firstNameRef} placeholder="Enter firstname...">
-              First name
-            </Input>
-            <Input ref={lastNameRef} placeholder="Enter lastname...">
-              Last name
-            </Input>
-          </div>
-
-          <div className={rowsClassName}>
-            <Input type="email" placeholder="Enter email" ref={emailRef}>
-              E-mail
-            </Input>
-            <Input placeholder="Enter username " ref={userNameRef}>
-              Username
-            </Input>
-          </div>
-
-          <div className={rowsClassName}>
-            <Input
-              type="phone-number"
-              placeholder="000 0000 000"
-              ref={phoneNoRef}
-            >
-              Phone number
-            </Input>
-            <Input placeholder="Enter gender" ref={genderRef}>
-              Gender
-            </Input>
-          </div>
-
-          <div className={rowsClassName}>
-            <Input
-              type="password"
-              placeholder="Enter password"
-              ref={passwordRef}
-            >
-              Password
-            </Input>
-            <Input
-              type="password"
-              placeholder="Confirm password"
-              ref={confirmPasswordRef}
-            >
-              E-mail
-            </Input>
-          </div>
-          <div className="flex items-start justify-center gap-6 my-[2em]">
-            <input
-              className="xl2:w-[35px] xl2:h-[35px] h-[50px] w-[50px] border border-solid border-black "
-              type="checkbox"
-              ref={areyouSureRef}
-            />
-
-            <p className=" font-[Raleway] text-[16px] ">
-              By ticking the box you agree to receive our marketing and
-              notification mails from us including our terms of service and
-              privacy policy
-            </p>
-          </div>
-        </div>
-        <div className="flex flex-col items-center mx-auto gap-2">
-          <Button width={"100%"} type="submit">
-            Sign Up
-          </Button>
-          <p>
-            Already have an account?{" "}
-            <Link className="text-[blue] font-[500]">Log In</Link>
-          </p>
-        </div>
-      </form>
-    </div>
+    </form>
   );
 };
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { objects } from "./objects";
 
-const SubHeader = () => {
+const SubHeroSection = () => {
   return (
     <div className="bg-[#F6F8FE] py-[20px] px-[30px] grid grid-cols-1 justify-center">
       <h1 className="text-[#1E1E1E] text-[1.8rem] mt-[20px] text-center ">
@@ -30,4 +30,4 @@ const Object = ({ image, text }) => {
   );
 };
 
-export default SubHeader;
+export default SubHeroSection;

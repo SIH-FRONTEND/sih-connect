@@ -26,7 +26,11 @@ const FeaturedTechies = () => {
               className=" m-[.7em] flex flex-col items-center justify-center "
               key={techie.id}
             >
-              <DisplayPhoto img={techie.profile_image} alt={"Display Photo"} />
+              <DisplayPhoto
+                img={techie.profile_image}
+                alt={"Display Photo"}
+                id={techie.id}
+              />
               <h1 className="text-white font-[500] phone:text-[2vmin]  lg2:text-[2.5vmin]">
                 {techie.firstname + " " + techie.lastname}
               </h1>

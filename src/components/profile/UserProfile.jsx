@@ -69,28 +69,33 @@ const UserProfile = (props) => {
 
   const ActionsDetail = (
     <div className="flex align-center">
-      <Button
-        fontSize="1em"
-        width="11em"
-        margin=".1em"
-        className="flex align-center justify-center"
-      >
-        <AiFillEdit className="text-[24px] text-[#fff] mx-[4px]" />
-        Edit Profile
-      </Button>
-      <Button
-        fontSize="1em"
-        width="11em"
-        backgroundColor="#ffffff"
-        border="2px solid #10328C"
-        color="#10328C"
-        hoverColor="#ffffff"
-        margin=".1em"
-        className="flex align-center justify-center"
-      >
-        <GrFormView className="text-[24px] text-[#10328C] mx-[4px]" />
-        View Projects
-      </Button>
+      <Link to={`/${user.id}/edit-profile`}>
+        <Button
+          fontSize="1em"
+          width="11em"
+          margin=".1em"
+          className="flex align-center justify-center"
+        >
+          <AiFillEdit className="text-[24px] text-[#fff] mx-[4px]" />
+          Edit Profile
+        </Button>
+      </Link>
+
+      <Link to={`/${user.id}/projects`}>
+        <Button
+          fontSize="1em"
+          width="11em"
+          backgroundColor="#ffffff"
+          border="2px solid #10328C"
+          color="#10328C"
+          hoverColor="#ffffff"
+          margin=".1em"
+          className="flex align-center justify-center"
+        >
+          <GrFormView className="text-[24px] text-[#10328C] mx-[4px]" />
+          View Projects
+        </Button>
+      </Link>
     </div>
   );
 

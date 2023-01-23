@@ -8,7 +8,7 @@ import { BsArrowRightShort } from "react-icons/bs";
 import Button from "../UI/Button";
 import SIHConnect from "../../assets/starthubconnect.png";
 
-const Header = () => {
+const HeroSection = () => {
   return (
     <main className="lg2:grid lg2:grid-cols-[1fr,1fr] flex ">
       <section className="flex flex-col items-start justify-center">
@@ -21,7 +21,7 @@ const Header = () => {
             with techies in start innovation hub
           </p>
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col xl2:flex-row items-center">
           <Link to="/register">
             <Button type="button">
               Join
@@ -51,4 +51,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeroSection;

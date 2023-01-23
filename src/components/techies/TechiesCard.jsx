@@ -1,8 +1,5 @@
 import React from "react";
 
-//importing from react-router-dom
-import { useNavigate } from "react-router-dom";
-
 //importing components
 import DisplayPhoto from "./DisplayPhoto";
 
@@ -14,21 +11,13 @@ const TechiesCard = ({
   experience_year_count,
   id,
 }) => {
-  //declaring navigate
-  const navigate = useNavigate();
-
-  const displayProfile = () => {
-    navigate(`/${id}/profile`);
-  };
   return (
-    <div
-      onClick={displayProfile}
-      className="flex flex-col shadow-md justify-center items-center text-center p-[1em] bg-white w-[220px] h-[306px]"
-    >
+    <div className="flex flex-col shadow-md justify-center items-center text-center p-[1em] bg-white w-[220px] h-[306px]">
       <DisplayPhoto
         img={profile_image}
         alt={"Display Photo"}
         currentStatus={true}
+        id={id}
       />
 
       <div className=" flex flex-col justify-center items-center text-center">

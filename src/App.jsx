@@ -20,7 +20,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="/" index element={<HomePage />} />
           <Route path="/homepage" element={<HomePage />} />
-          <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/:id/edit-profile" element={<EditProfile />} />
           <Route path="/:id/profile" element={<ProfilePage />} />
           <Route path="/all-techies" element={<Techies />} />
           <Route path="*" element={<PageNotFound />} />
