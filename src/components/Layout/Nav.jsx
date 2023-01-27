@@ -10,6 +10,7 @@ import rlogo from "../../assets/logos/hubResponsizeLogo.svg";
 import { IconContext } from "react-icons";
 import { FaSistrix } from "react-icons/fa";
 import { RxBell, RxAvatar } from "react-icons/rx";
+import { BiLogIn, BiLogOut } from "react-icons/bi";
 
 import { FiMenu } from "react-icons/fi";
 
@@ -95,9 +96,17 @@ const Nav = () => {
             {pathname === LOGIN ? "Not yet a member?" : "Already a Member?"}
           </p>
           <Link to={pathname === LOGIN ? REGISTER : LOGIN}>
-            <Button margin="0">
-              {pathname === LOGIN ? "Sign Up" : "Sign In"}
-            </Button>
+            {screenSize < 400 && pathname !== LOGIN && (
+              <BiLogIn className="text-[2.5em]" />
+            )}
+            {screenSize < 400 && pathname === LOGIN && (
+              <BiLogOut className="text-[2.5em]" />
+            )}
+            {screenSize > 400 && (
+              <Button margin="0">
+                {pathname === LOGIN ? "Sign Up" : "Sign In"}
+              </Button>
+            )}
           </Link>
         </div>
       )}

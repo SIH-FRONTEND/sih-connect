@@ -2,6 +2,8 @@ import React, { Fragment } from "react";
 
 //importing from react-router-dom
 import { Link } from "react-router-dom";
+
+//importing from react-icons
 import { BsArrowRightShort } from "react-icons/bs";
 
 //importing from react-redux

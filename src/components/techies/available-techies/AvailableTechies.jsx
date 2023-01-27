@@ -1,6 +1,9 @@
 // importing hooks
 import useFetch from "../../../hooks/useFetch";
 
+//importing from react-redux
+import { useSelector } from "react-redux";
+
 //importing components
 import LoadingSpinner from "../../UI/LoadingSpinner";
 import TechiesCard from "../TechiesCard";
@@ -11,6 +14,8 @@ import ErrorMessage from "../../UI/ErrorMessage";
 const url = "https://starthubconnect.adaptable.app/user/latest-members";
 
 const AvailableTechies = () => {
+  const { screenSize } = useSelector(state=>state.screenSize);
+
   //fetching data using imported Hook
   const { data, isPending, error } = useFetch(url);
 
@@ -23,7 +28,7 @@ const AvailableTechies = () => {
       </h2>
       {data && !isPending && !error && (
         <div className="flex flex-wrap justify-center items-center py-5  gap-[18px]">
-          {data.items.slice(0, 10).map((item) => {
+          {data.items.slice(0, screenSize < 500 ? 6 : 10).map((item) => {
             return <TechiesCard key={item.id} {...item} />;
           })}
         </div>

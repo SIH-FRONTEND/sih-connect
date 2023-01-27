@@ -2,7 +2,7 @@
 import styled from "styled-components";
 
 //importing from react-router-dom
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 //using styled components to styled div in order to account for hover
 const ImageControl = styled.div`
@@ -42,6 +42,11 @@ const ImageControl = styled.div`
   &:hover p {
     display: block;
   }
+
+  @media (max-width: 500px) {
+    width: 4em;
+    height: 4em;
+  }
 `;
 
 const DisplayPhoto = ({
@@ -52,6 +57,7 @@ const DisplayPhoto = ({
   currentStatus,
   id,
 }) => {
+  const navigate = useNavigate();
   //declaring navigate
 
   const location = useLocation();
