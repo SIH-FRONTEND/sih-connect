@@ -25,7 +25,7 @@ const HeroSection = () => {
             with techies in start innovation hub
           </p>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <Link to="/register">
             <Button type="button" margin="0">
               Join
