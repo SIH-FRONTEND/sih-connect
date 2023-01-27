@@ -9,7 +9,6 @@ import minihero3 from "../../assets/icons/minihero3.png";
 import minihero4 from "../../assets/icons/minihero4.png";
 import minihero5 from "../../assets/icons/minihero5.png";
 import minihero6 from "../../assets/icons/minihero6.png";
-import screenSize from "../../store/screenSize";
 
 const objects = [
   {
@@ -40,6 +39,17 @@ const objects = [
 
 const SubHeroSection = () => {
   const { screenSize } = useSelector((state) => state.screenSize);
+
+  const Object = ({ image, text }) => {
+    return (
+      <div className="flex flex-col items-center">
+        <img src={image} className="w-[1rem] xl2:w-[2em]" />
+        {screenSize > 400 && (
+          <p className="mt-[.3rem] text-[#1E1E1E]">{text}</p>
+        )}
+      </div>
+    );
+  };
   const spanClassName = "text-[1em] xl2:text-[2em]";
   return (
     <div className="bg-[#F6F8FE] flex items-center flex-col justify-center gap-[2em] py-[2em]">
@@ -48,6 +58,7 @@ const SubHeroSection = () => {
           <span className={spanClassName}>Find</span>
           <span className={spanClassName}>Connect</span>
           <span className={spanClassName}>Work</span>
+        
           <span className={spanClassName}>Collaborate</span>
         </div>
         <p className="text-center text-[#6B6B6B]">
@@ -60,15 +71,6 @@ const SubHeroSection = () => {
           return <Object {...object} />;
         })}
       </div>
-    </div>
-  );
-};
-
-const Object = ({ image, text }) => {
-  return (
-    <div className="flex flex-col items-center">
-      <img src={image} className="w-[1rem] xl2:w-[2em]" />
-      {screenSize > 400 && <p className="mt-[.3rem] text-[#1E1E1E]">{text}</p>}
     </div>
   );
 };
