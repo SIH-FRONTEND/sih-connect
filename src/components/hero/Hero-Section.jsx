@@ -17,10 +17,10 @@ const HeroSection = () => {
     <main className="flex flex-col xl2:flex-row items-center xl2:items-center  justify-start px-[4em] py-[2em] h-auto gap-4 ">
       <section className="flex flex-col justify-start items-start h-[80%] flex-1 gap-[3em] ">
         <div className="text-start xl2:w-[90%]">
-          <h1 className="xl2:text-[4.5em] text-[2em] text-[#10328c]">
+          <h1 className="xl2:text-[4.5em] text-[1.5em] text-[#10328c]">
             <b>Connect</b> with <b>techies</b> from all <b>niche</b>
           </h1>
-          <p className="font-medium text-[#6B6B6B] xl2:text-[1.3em] text-[1em]">
+          <p className="font-medium text-[#6B6B6B] xl2:text-[1.3em] text-[.8em]">
             Collaborate with techies on a project and get things done as a team
             with techies in start innovation hub
           </p>

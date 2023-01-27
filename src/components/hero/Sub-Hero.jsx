@@ -1,11 +1,15 @@
 import React from "react";
 
+//importing from react-redux
+import { useSelector } from "react-redux";
+
 import minihero1 from "../../assets/icons/minihero1.png";
 import minihero2 from "../../assets/icons/minihero2.png";
 import minihero3 from "../../assets/icons/minihero3.png";
 import minihero4 from "../../assets/icons/minihero4.png";
 import minihero5 from "../../assets/icons/minihero5.png";
 import minihero6 from "../../assets/icons/minihero6.png";
+import screenSize from "../../store/screenSize";
 
 const objects = [
   {
@@ -35,6 +39,7 @@ const objects = [
 ];
 
 const SubHeroSection = () => {
+  const { screenSize } = useSelector((state) => state.screenSize);
   const spanClassName = "text-[1em] xl2:text-[2em]";
   return (
     <div className="bg-[#F6F8FE] flex items-center flex-col justify-center gap-[2em] py-[2em]">
@@ -63,7 +68,7 @@ const Object = ({ image, text }) => {
   return (
     <div className="flex flex-col items-center">
       <img src={image} className="w-[1rem] xl2:w-[2em]" />
-      <p className="mt-[.3rem] text-[#1E1E1E]">{text}</p>
+      {screenSize > 400 && <p className="mt-[.3rem] text-[#1E1E1E]">{text}</p>}
     </div>
   );
 };

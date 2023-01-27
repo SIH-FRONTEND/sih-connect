@@ -27,7 +27,7 @@ const ButtonControl = styled.button`
   @media (max-width: 530px) {
     & {
       height: 2.5em;
-      width: 150px;
+      width: 120px;
     }
   }
 `;
