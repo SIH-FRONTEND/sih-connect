@@ -6,7 +6,7 @@ import vector5 from "../../assets/Vector-4.png";
 import vector6 from "../../assets/Vector-5.png";
 
 
-export let objects = [
+const objects = [
   {
     image: vector1,
     text: "Developers",

@@ -23,6 +23,13 @@ const ButtonControl = styled.button`
   &:hover {
     background-color: ${({ hoverColor }) => hoverColor || "#090e47"};
   }
+
+  @media (max-width: 530px) {
+    & {
+      height: 2.5em;
+      width: 150px;
+    }
+  }
 `;
 const Button = ({
   backgroundColor,

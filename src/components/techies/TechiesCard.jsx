@@ -12,7 +12,7 @@ const TechiesCard = ({
   id,
 }) => {
   return (
-    <div className="flex flex-col shadow-md justify-center items-center text-center p-[1em] bg-white w-[220px] h-[306px]">
+    <div className="flex flex-col shadow-md justify-center items-center text-center p-[1em] bg-white w-[180px] h-[260px] xl2:w-[220px] xl2:h-[306px]  ">
       <DisplayPhoto
         img={profile_image}
         alt={"Display Photo"}
@@ -20,15 +20,15 @@ const TechiesCard = ({
         id={id}
       />
 
-      <div className=" flex flex-col justify-center items-center text-center">
-        <p className=" text-[20px] font-[700] m-0 ">
+      <div className=" flex flex-col justify-center items-center text-center [&*]:text-[14px]">
+        <p className=" xl2:text-[20px] font-[700] m-0 ">
           {`${firstname} ${lastname}`}
         </p>
-        <p className="text-[17px] font-[500] text-[#6B6B6B] m-0  ">
+        <p className="xl2:text-[17px] font-[500] text-[#6B6B6B] m-0  ">
           {skills ? skills : "Trainee"}
         </p>
 
-        <p className="font-[500] text-[17px] text-[#6B6B6B] mt-[.5em]">
+        <p className="font-[500] xl2:text-[17px] text-[#6B6B6B] mt-[.5em]">
           {experience_year_count ? experience_year_count : "<1 year(s)"}
         </p>
       </div>

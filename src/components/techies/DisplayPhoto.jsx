@@ -2,7 +2,7 @@
 import styled from "styled-components";
 
 //importing from react-router-dom
-import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 //using styled components to styled div in order to account for hover
 const ImageControl = styled.div`
@@ -53,7 +53,9 @@ const DisplayPhoto = ({
   id,
 }) => {
   //declaring navigate
-  const navigate = useNavigate();
+
+  const location = useLocation();
+  console.log(location);
 
   const displayProfile = () => {
     navigate(`/${id}/profile`);
@@ -69,7 +71,7 @@ const DisplayPhoto = ({
         width={width}
         backgroundColor={backgroundColor}
       />
-      <p>View Profile</p>
+      <p className="">View Profile</p>
     </ImageControl>
   );
 };

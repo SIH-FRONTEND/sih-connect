@@ -17,12 +17,11 @@ const LayoutControl = styled.main`
     margin: 0 auto;
   }
   & > * {
-    padding: 1em 5em;
-    margin: auto;
   }
   @media (max-width: 768px) {
     & > * {
-      padding: 1.6em;
+      padding-right: 1.6em;
+      padding-left: 1.6em;
       width: 100%;
     }
   }
