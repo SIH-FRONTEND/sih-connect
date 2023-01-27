@@ -1,4 +1,13 @@
 import { Route, Routes } from "react-router-dom";
+
+//importing from react
+import { useEffect } from "react";
+
+//importing from redix store
+import { useDispatch } from "react-redux";
+import { screenSizeAction } from "./store/screenSize";
+
+//importing stylesheet
 import "./styles/App.css";
 
 //imported wrapper
@@ -14,6 +23,14 @@ import ProfilePage from "./pages/ProfilePage";
 import Techies from "./pages/Techies";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const handleResize = () => {
+      dispatch(screenSizeAction.changeScreenSize(window.innerWidth));
+    };
+    window.addEventListener("resize", handleResize, false);
+  }, [window.innerWidth]);
   return (
     <div className="App">
       <Routes>

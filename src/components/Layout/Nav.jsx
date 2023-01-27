@@ -5,7 +5,8 @@ import Button from "../UI/Button";
 import { useState, useRef } from "react";
 
 //importimg icons
-import Starthublogo from "../../assets/starthub_logo.svg";
+import logo from "../../assets/logos/starthub_logo.svg";
+import rlogo from "../../assets/logos/hubResponsizeLogo.svg";
 import { IconContext } from "react-icons";
 import { FaSistrix } from "react-icons/fa";
 import { RxBell, RxAvatar } from "react-icons/rx";
@@ -26,7 +27,9 @@ const Nav = () => {
   const searchRef = useRef();
   const [showSearch, setShowSearch] = useState(false);
   const { pathname } = useLocation();
-  
+
+  const { screenSize } = useSelector((state) => state.screenSize);
+
   //using location to check path to display conditional screen
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
@@ -50,7 +53,7 @@ const Nav = () => {
   return (
     <nav className="xl2:px-16 px-2 flex flex-column items-center justify-between h-[6em]">
       <Link to="/" className="object-cover">
-        <img className="" src={Starthublogo} />
+        <img src={screenSize > 768 ? logo : rlogo} className="h-[3.5em]" />
       </Link>
 
       <IconContext.Provider
@@ -88,7 +91,7 @@ const Nav = () => {
 
       {!isLoggedIn && (
         <div className="flex items-center justify-center gap-2">
-          <p className="text-lg font-bold">
+          <p className="text-lg font-bold hidden xl:block">
             {pathname === LOGIN ? "Not yet a member?" : "Already a Member?"}
           </p>
           <Link to={pathname === LOGIN ? REGISTER : LOGIN}>
