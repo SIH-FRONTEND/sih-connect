@@ -43,7 +43,7 @@ const ImageControl = styled.div`
     display: block;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 1024px) {
     width: 4em;
     height: 4em;
   }
@@ -69,7 +69,7 @@ const DisplayPhoto = ({
   return (
     <ImageControl onClick={displayProfile} className="h-24  w-24 ">
       {currentStatus && (
-        <div className=" absolute rounded-full right-2 top-3 border-2 border-white border-solid bg-[#1ED70E] h-[20px] w-[20px] z-[4]"></div>
+        <div className=" absolute rounded-full right-1 top-0 xl2:right-2 xl2:top-3 border-2 border-white border-solid bg-[#1ED70E] h-[15px] w-[15px] xl2:h-[20px] xl2:w-[20px] z-[4]"></div>
       )}
       <img
         src={img}

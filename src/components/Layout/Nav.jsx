@@ -52,9 +52,12 @@ const Nav = () => {
     // console.log(fetchData);
   };
   return (
-    <nav className="xl2:px-16 px-2 flex flex-column items-center justify-between h-[5em] fixed right-0 left-0 top-0 bg-white z-[1000]">
+    <nav className="xl2:px-16 px-2 flex flex-column items-center justify-between h-[4em] xl2:h-[5em] fixed right-0 left-0 top-0 bg-white z-[1000]">
       <Link to="/" className="object-cover">
-        <img src={screenSize > 768 ? logo : rlogo} className="h-[3.5em]" />
+        <img
+          src={screenSize > 768 ? logo : rlogo}
+          className=" h-[2.5em] xl2:h-[3.5em]"
+        />
       </Link>
 
       <IconContext.Provider
@@ -96,17 +99,9 @@ const Nav = () => {
             {pathname === LOGIN ? "Not yet a member?" : "Already a Member?"}
           </p>
           <Link to={pathname === LOGIN ? REGISTER : LOGIN}>
-            {screenSize < 400 && pathname !== LOGIN && (
-              <BiLogIn className="text-[2.5em]" />
-            )}
-            {screenSize < 400 && pathname === LOGIN && (
-              <BiLogOut className="text-[2.5em]" />
-            )}
-            {screenSize > 400 && (
-              <Button margin="0">
-                {pathname === LOGIN ? "Sign Up" : "Sign In"}
-              </Button>
-            )}
+            <Button margin="0">
+              {pathname === LOGIN ? "Sign Up" : "Sign In"}
+            </Button>
           </Link>
         </div>
       )}

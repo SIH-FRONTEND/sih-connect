@@ -26,8 +26,9 @@ const ButtonControl = styled.button`
 
   @media (max-width: 530px) {
     & {
-      height: 2.5em;
-      width: 120px;
+      height: 2em;
+      width: ${({ rWidth }) => rWidth || "120px"};
+      font-size: 1em;
     }
   }
 `;
@@ -42,7 +43,10 @@ const Button = ({
   border,
   fontSize,
   margin,
+  rWidth,
+  clickHandler,
 }) => {
+  console.log(clickHandler);
   return (
     <ButtonControl
       type={type && type}
@@ -54,6 +58,8 @@ const Button = ({
       width={width}
       fontSize={fontSize}
       margin={margin}
+      rWidth={rWidth}
+      onClick={clickHandler}
     >
       {children}
     </ButtonControl>
