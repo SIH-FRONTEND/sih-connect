@@ -11,7 +11,7 @@ const SlideComponent = ({ image, testimony }) => {
         <h3 className="font-bold">Janet Phil</h3>
         <p className="text-[#6B6B6B]">Chief Excutive Officer</p>
       </div>
-      <p className="w-[100%] h-[auto] text-[.7em] xl2:[1.5em] text-center">
+      <p className="w-[100%] h-[auto] text-[.7em] xl2:text-[1.5em] text-center">
         Lorem ipsum dolor sit amet consectetur. Condimentum consectetur leo
         aenean quis eget lectus ut sodales diam. Sit arcu viverra enim aenean
         and osundu ayerika did not just give up his dreams, he was a regular
