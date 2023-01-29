@@ -2,13 +2,13 @@
 import styled from "styled-components";
 
 //importing from react-router-dom
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 //using styled components to styled div in order to account for hover
 const ImageControl = styled.div`
   & {
-    width: ${({ width }) => width || "9em"};
-    height: ${({ height }) => height || "9em"};
+    width: ${({ size }) => size || "9em"};
+    height: ${({ size }) => size || "9em"};
     border-radius: 50%;
     border: 0.5px solid #10328c;
     position: relative;
@@ -42,16 +42,25 @@ const ImageControl = styled.div`
   &:hover p {
     display: block;
   }
+
+  @media (max-width: 1024px) {
+    & {
+      width: ${({ rWidth }) => rWidth || "4em"};
+      height: ${({ rWidth }) => rWidth || "4em"};
+    }
+  }
 `;
 
 const DisplayPhoto = ({
   img,
   alt,
-  width,
+  size,
   backgroundColor,
   currentStatus,
   id,
+  rWidth,
 }) => {
+  const navigate = useNavigate();
   //declaring navigate
 
   const location = useLocation();
@@ -61,14 +70,15 @@ const DisplayPhoto = ({
     navigate(`/${id}/profile`);
   };
   return (
-    <ImageControl onClick={displayProfile} className="h-24  w-24 ">
+    <ImageControl onClick={displayProfile}>
       {currentStatus && (
-        <div className=" absolute rounded-full right-2 top-3 border-2 border-white border-solid bg-[#1ED70E] h-[20px] w-[20px] z-[4]"></div>
+        <div className=" absolute rounded-full right-1 top-0 xl2:right-2 xl2:top-3 border-2 border-white border-solid bg-[#1ED70E] h-[15px] w-[15px] xl2:h-[20px] xl2:w-[20px] z-[4]"></div>
       )}
       <img
         src={img}
         alt={alt}
-        width={width}
+        size={size}
+        rWidth={rWidth}
         backgroundColor={backgroundColor}
       />
       <p className="">View Profile</p>

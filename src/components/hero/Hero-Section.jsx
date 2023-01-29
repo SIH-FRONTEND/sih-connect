@@ -2,6 +2,8 @@ import React, { Fragment } from "react";
 
 //importing from react-router-dom
 import { Link } from "react-router-dom";
+
+//importing from react-icons
 import { BsArrowRightShort } from "react-icons/bs";
 
 //importing from react-redux
@@ -14,18 +16,18 @@ import heroIcon from "../../assets/images/heroIcon.svg";
 const HeroSection = () => {
   const { screenSize } = useSelector((state) => state.screenSize);
   return (
-    <main className="flex flex-col xl2:flex-row items-center xl2:items-center  justify-start px-[4em] py-[2em] h-auto gap-4 ">
+    <main className="flex flex-col lg2:flex-row items-center lg2:items-center justify-start px-[4em] py-[2em] h-auto gap-4 ">
       <section className="flex flex-col justify-start items-start h-[80%] flex-1 gap-[3em] ">
-        <div className="text-start xl2:w-[90%]">
-          <h1 className="xl2:text-[4.5em] text-[2em] text-[#10328c]">
+        <div className="text-start lg2:w-[90%]">
+          <h1 className="2xl:text-[4.5em] xl2:text-[4em] lg2:text-[2.5em] text-[2em] text-[#10328c]">
             <b>Connect</b> with <b>techies</b> from all <b>niche</b>
           </h1>
-          <p className="font-medium text-[#6B6B6B] xl2:text-[1.3em] text-[1em]">
+          <p className="font-medium text-[#6B6B6B] xl2:text-[1em] lg2:text-[1.3em] text-[.8em]">
             Collaborate with techies on a project and get things done as a team
             with techies in start innovation hub
           </p>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <Link to="/register">
             <Button type="button" margin="0">
               Join

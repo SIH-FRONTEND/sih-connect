@@ -1,5 +1,8 @@
 import React from "react";
 
+//importing from react-redux
+import { useSelector } from "react-redux";
+
 import minihero1 from "../../assets/icons/minihero1.png";
 import minihero2 from "../../assets/icons/minihero2.png";
 import minihero3 from "../../assets/icons/minihero3.png";
@@ -35,14 +38,28 @@ const objects = [
 ];
 
 const SubHeroSection = () => {
+  const { screenSize } = useSelector((state) => state.screenSize);
+
+  const Object = ({ image, text }) => {
+    return (
+      <div className="flex flex-col items-center">
+        <img src={image} className="w-[1rem] xl2:w-[2em]" />
+        {screenSize > 400 && (
+          <p className="mt-[.3rem] text-[#1E1E1E]">{text}</p>
+        )}
+      </div>
+    );
+  };
+  const spanClassName = "text-[1em] xl2:text-[2em]";
   return (
     <div className="bg-[#F6F8FE] flex items-center flex-col justify-center gap-[2em] py-[2em]">
       <div className="flex flex-col items-center justify-center">
-        <div className="[&>*]:text-[#1E1E1E] [&>*]:text-[1.8rem] flex gap-3">
-          <span>Find</span>
-          <span>Connect</span>
-          <span>Work</span>
-          <span>Collaborate</span>
+        <div className="[&>*]:text-[#1E1E1E] flex gap-3">
+          <span className={spanClassName}>Find</span>
+          <span className={spanClassName}>Connect</span>
+          <span className={spanClassName}>Work</span>
+        
+          <span className={spanClassName}>Collaborate</span>
         </div>
         <p className="text-center text-[#6B6B6B]">
           All tech creatives with top notch knowledge and awareness in the tech
@@ -54,15 +71,6 @@ const SubHeroSection = () => {
           return <Object {...object} />;
         })}
       </div>
-    </div>
-  );
-};
-
-const Object = ({ image, text }) => {
-  return (
-    <div className="flex flex-col items-center">
-      <img src={image} className="w-[2rem]" />
-      <p className="mt-[.3rem] text-[#1E1E1E]">{text}</p>
     </div>
   );
 };

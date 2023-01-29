@@ -1,39 +1,36 @@
 //importing icons
-import frame from "../../assets/frame.png";
+import footLogo from "../../assets/logos/whitelogo.svg";
 
 //importing from React-Router-Dom
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className=" bg-[#10328C] text-white  flex flex-nowrap sm:gap-0  sm:px-10 justify-around py-20 sm:text-sm  lg:text-lg lg:items-end absolute buttom-0 left-0 right-0">
-      <div className="logo">
-        <img src={frame} alt="" />
-        <ul>Copyright &copy; 2022</ul>
+    <footer className=" bg-[#10328C] text-white flex flex-nowrap justify-between p-[1em] xl2:p-[4em] lg:items-center h-auto py-[1em] xl2:h-[14em] w-full">
+      <div className="flex items-center flex-col ">
+        <img src={footLogo} alt="footlogo" className="h-[3em] xl2:h-[6em]" />
+        <p className="xl2:text-[1.2em] text-[0.7em]">Copyright &copy; 2022</p>
       </div>
 
-      <div className="mid lg:flex  gap-20">
-        <ul>
-          <Link to="/supportUs ">Terms & Conditions</Link>
-        </ul>
-
-        <ul>
-          <Link to="/">Become A Member</Link>
-        </ul>
-
-        <ul>
-          <Link to="/">About Us</Link>
-        </ul>
+      <div className="flex flex-col items-start xl3:flex-row xl3:gap-[3em] ">
+        <Link to="/supportUs" className="xl2:text-[1.2em] text-[0.7em]">
+          Terms & Conditions
+        </Link>
+        <Link to="/" className="xl2:text-[1.2em] text-[0.7em]">
+          Become A Member
+        </Link>
+        <Link to="/" className="xl2:text-[1.2em] text-[0.7em]">
+          About Us
+        </Link>
       </div>
 
-      <div className="last lg:flex gap-20">
-        <ul>
-          <Link to="/">Support Us</Link>
-        </ul>
-
-        <ul>
-          <Link to="/">Privacy Policy</Link>
-        </ul>
+      <div className="flex flex-col items-start xl3:flex-row xl3:gap-[3em]">
+        <Link to="/" className="xl2:text-[1.2em] text-[0.7em]">
+          Support Us
+        </Link>
+        <Link to="/" className="xl2:text-[1.2em] text-[0.7em]">
+          Privacy Policy
+        </Link>
       </div>
     </footer>
   );

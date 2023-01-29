@@ -17,7 +17,7 @@ const ButtonControl = styled.button`
     border-radius: 8px;
     margin: ${({ margin }) => margin || "1em"};
     font-size: ${({ fontSize }) => fontSize || "1.2em"};
-    border: ${(props) => props.border || 0};
+    border: ${(props) => props.border || `2px solid ${props.backgroundColor}`};
     cursor: pointer;
   }
   &:hover {
@@ -26,8 +26,9 @@ const ButtonControl = styled.button`
 
   @media (max-width: 530px) {
     & {
-      height: 2.5em;
-      width: 150px;
+      height: 2.3em;
+      width: ${({ rWidth }) => rWidth || "120px"};
+      font-size: 1em;
     }
   }
 `;
@@ -42,7 +43,10 @@ const Button = ({
   border,
   fontSize,
   margin,
+  rWidth,
+  clickHandler,
 }) => {
+  console.log(clickHandler);
   return (
     <ButtonControl
       type={type && type}
@@ -54,6 +58,8 @@ const Button = ({
       width={width}
       fontSize={fontSize}
       margin={margin}
+      rWidth={rWidth}
+      onClick={clickHandler}
     >
       {children}
     </ButtonControl>
