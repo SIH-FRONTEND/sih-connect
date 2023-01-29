@@ -8,4 +8,5 @@
 .App {
   max-width: 2000px;
   margin: 0 auto;
+  transition: all 10s linear;
 }
