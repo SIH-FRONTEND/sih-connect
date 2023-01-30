@@ -52,7 +52,7 @@ const Nav = () => {
     // console.log(fetchData);
   };
   return (
-    <nav className="xl2:px-16 px-2 flex flex-column items-center justify-between h-[4em] xl2:h-[5em] fixed right-0 left-0 top-0 bg-white z-[1000]">
+    <nav className=" shadow-md xl2:px-16 px-2 flex flex-column items-center justify-between h-[4em] xl2:h-[5em] fixed right-0 left-0 top-0 bg-white z-[1000]">
       <Link to="/" className="object-cover">
         <img
           src={screenSize > 768 ? logo : rlogo}

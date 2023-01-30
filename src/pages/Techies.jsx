@@ -1,48 +1,25 @@
-import React, { useState, useEffect } from 'react'
+//importing from react
+import { Fragment } from "react";
 
-// importing Components
-import TechiesCard from '../components/techies/TechiesCard'
+//importing supportin components
+import AllTechies from "../components/techies/all-techies/AllTechies";
+import LoadingSpinner from "../components/UI/LoadingSpinner";
+import ErrorMessage from "../components/UI/ErrorMessage";
 
-const url = 'https://jsonplaceholder.typicode.com/photos'
-const Techies = () => {
-  const [techies, setTchies] = useState([])
+//importing custom
+import useFetch from "../hooks/useFetch";
 
-  useEffect(() => {
-    try {
-      fetch(url)
-        .then((res) => res.json())
-        .then((data) => {
-          const userData = data.slice(0 - 70)
-          setTchies(userData)
-          console.log(userData)
-        })
-    } catch (error) {
-      console.error(error)
-    }
-  }, [])
-
+const Techies = (props) => {
+  const { data, isPending, error } = useFetch(
+    "https://starthubconnect.adaptable.app/user/top-members"
+  );
   return (
-    <div className='bg-[rgb(16,50,140)] text-center px-[7%] py-[3rem] h-full]'>
-      <h1 className='text-white text-[4vmin] font-[400] mb-[1rem]'>
-        Featured techies
-      </h1>
-      <div className='grid grid-cols-6 '>
-        {techies.map((techie) => {
-          return (
-            <div className=' mx-[15%] my-[.7rem]' key={techie.id}>
-              <img src={techie.url} alt='' className='rounded-full' />
-              <h1 className='text-white font-[500] phone:text-[2vmin] md:text-[2.5vmin]'>
-                John Philip
-              </h1>
-              <p className='text-[#6474A2] phone:text-[1.8vmin] md:text-[2.2vmin]'>
-                {techie.id}
-              </p>
-            </div>
-          )
-        })}
-      </div>
-    </div>
-  )
-}
+    <Fragment>
+      {isPending && !data && <LoadingSpinner />}
+      {!isPending && !error && data && <AllTechies techies={data.items} />}
+      {!isPending && !data && error && <ErrorMessage />}
+    </Fragment>
+  );
+};
 
-export default Techies
+export default Techies;
