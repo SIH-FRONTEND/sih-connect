@@ -46,7 +46,6 @@ const Button = ({
   rWidth,
   clickHandler,
 }) => {
-  console.log(clickHandler);
   return (
     <ButtonControl
       type={type && type}
