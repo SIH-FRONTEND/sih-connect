@@ -1,6 +1,8 @@
-import { useNavigate } from "react-router-dom";
+//importing from react router dom
+import { useNavigate, Link } from "react-router-dom";
 
-import sihLogo from "../assets/SIH_Blue.png";
+// importing starthub logo
+import sihLogo from "../assets/logos/hubIcon.svg";
 
 const PageNotFound = () => {
   const nagivate = useNavigate();
@@ -9,27 +11,24 @@ const PageNotFound = () => {
     nagivate(-1);
   };
   return (
-    <div className="grid grid-cols-1 justify-center py-[8rem]">
-      <div>
-        <h1 className="text-[#10328C] text-center tracking-tight leading-[2rem] text-[20rem] font-medium ">
-          4
-          <img
-            className="inline-block w-[14rem] mt-[3rem] object-contain "
-            src={sihLogo}
-          />
-          4
-        </h1>
-        <h1 className="text-[3.2rem] font-medium text-center leading-[4rem] pb-[0.5rem]">
-          Sorry, something’s missing
-        </h1>
+    <div className="w-full h-[80vh] ">
+      <div className="h-auto m-auto flex items-center flex-col mt-[7rem]">
+        <div>
+          <p className="text-[#10328C] text-[5rem] lg2:text-[8em] xl2:text-[20rem] font-medium flex flex-nowrap items-center h-auto w-fit m-auto font-sans">
+            4
+            <img className="h-[4rem] lg2:[8em] xl2:h-[16rem]" src={sihLogo} />4
+          </p>
+          <p className="text-[1.2rem] xl2:text-[3rem] font-medium text-center leading-[4rem] pb-[0.5rem]">
+            Sorry, something’s missing
+          </p>
+        </div>
+        <h2
+          className="text-[2rem] text-center font-semibold text-[#10328C] cursor-pointer"
+          onClick={navigateBackHandler}
+        >
+          Go back
+        </h2>
       </div>
-
-      <h2
-        className="text-[1.46rem] text-center font-semibold text-[#10328C] pb-[9rem]"
-        onClick={navigateBackHandler}
-      >
-        Go back
-      </h2>
     </div>
   );
 };
