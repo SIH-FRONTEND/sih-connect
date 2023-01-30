@@ -24,9 +24,9 @@ const ButtonControl = styled.button`
     background-color: ${({ hoverColor }) => hoverColor || "#090e47"};
   }
 
-  @media (max-width: 530px) {
+  @media (max-width: 1024px) {
     & {
-      height: 2.3em;
+      height: 2.5em;
       width: ${({ rWidth }) => rWidth || "120px"};
       font-size: 1em;
     }

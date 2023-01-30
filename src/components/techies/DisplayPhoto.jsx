@@ -10,7 +10,6 @@ const ImageControl = styled.div`
     width: ${({ size }) => size || "9em"};
     height: ${({ size }) => size || "9em"};
     border-radius: 50%;
-    border: 0.5px solid #10328c;
     position: relative;
     cursor: pointer;
   }
